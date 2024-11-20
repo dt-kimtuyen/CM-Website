@@ -7,7 +7,7 @@ const theme = createTheme({
       main: '#4caf50', // Adjust the color as needed
     },
     background: {
-      paper: '#fff', // Ensure the paper color is defined
+      paper: '#fff', // Ensured the paper color is defined
     },
   },
   shape: {
