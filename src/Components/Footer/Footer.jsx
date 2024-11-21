@@ -8,7 +8,6 @@ const Footer = () => {
     <InfoCards/>
     <div style={styles.footerContainer}>
       <div style={styles.footerSection}>
-<<<<<<< HEAD
         
         <p style={styles.description}>
         CM FASHION - Cửa hàng thời trang trực tuyến với các mẫu quần áo mới nhất, chất lượng cao.<br />
@@ -18,21 +17,6 @@ const Footer = () => {
           <strong>Địa chỉ:</strong> 77 Tân Hòa Phường Hiệp Phú, TP.HCM<br />
           <strong>Điện thoại:</strong> 0345257432<br />
           <strong>Email:</strong> cmfashion@gmail.com
-=======
-        <img 
-          src="https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/logo.png?1716945232631" 
-          alt="Bean Farm" 
-          style={styles.logo}
-        />
-        <p style={styles.description}>
-          Bean Farm- Siêu thị trực tuyến mua sắm nông sản, chất lượng, tươi xanh.<br />
-          <span style={styles.highlight}>Giá siêu tốt - Giao siêu tốc.</span>
-        </p>
-        <p style={styles.contact}>
-          <strong>Địa chỉ:</strong> 79/3 Lê Văn Chí Phường Linh Trung, TP.HCM<br />
-          <strong>Điện thoại:</strong> 0855005506<br />
-          <strong>Email:</strong> tincui012@gmail.com
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         </p>
       </div>
       <div style={styles.footerSection}>

@@ -6,20 +6,14 @@ import {
   Button,
   IconButton,
   Typography,
-<<<<<<< HEAD
   FormHelperText
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { updateCategoryAPI } from "../../../../apis";
 
 const CategoryEdit = ({ open, onClose, category, onSave }) => {
   const [editedCategory, setEditedCategory] = useState(category);
-<<<<<<< HEAD
   const [error, setError] = useState('');
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
   useEffect(() => {
     setEditedCategory(category);
@@ -27,7 +21,6 @@ const CategoryEdit = ({ open, onClose, category, onSave }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-<<<<<<< HEAD
 
     // Validate discount value if name is 'discount'
     if (name === 'discount') {
@@ -40,26 +33,18 @@ const CategoryEdit = ({ open, onClose, category, onSave }) => {
       }
     }
 
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     setEditedCategory((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleSave = async () => {
-<<<<<<< HEAD
     if (error) return; // Prevent saving if there's an error
 
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     try {
       const updatedCategory = await updateCategoryAPI(editedCategory.id, {
         name: editedCategory.name,
         description: editedCategory.description,
-<<<<<<< HEAD
         discount: editedCategory.discount,
         discountExpiration: editedCategory.discountExpiration,
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         isActive: editedCategory.isActive, // Assuming isActive is also updated
       });
       onSave(updatedCategory); // Pass updated category to parent component
@@ -91,20 +76,12 @@ const CategoryEdit = ({ open, onClose, category, onSave }) => {
           </IconButton>
         </Box>
         <Typography variant="body2" color="textSecondary" mb={3}>
-<<<<<<< HEAD
          Cập nhật thông tin danh mục của bạn từ đây
-=======
-          Update your category information here
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         </Typography>
         <TextField
           fullWidth
           margin="normal"
-<<<<<<< HEAD
           label="Tên danh mục"
-=======
-          label="Category Name"
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           name="name"
           value={editedCategory?.name || ""}
           onChange={handleChange}
@@ -114,11 +91,7 @@ const CategoryEdit = ({ open, onClose, category, onSave }) => {
         <TextField
           fullWidth
           margin="normal"
-<<<<<<< HEAD
           label="Chú thích"
-=======
-          label="Description"
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           name="description"
           value={editedCategory?.description || ""}
           onChange={handleChange}
@@ -127,7 +100,6 @@ const CategoryEdit = ({ open, onClose, category, onSave }) => {
           variant="filled"
           InputProps={{ style: { backgroundColor: "#f9f9f9" } }}
         />
-<<<<<<< HEAD
         <TextField
           fullWidth
           margin="normal"
@@ -157,10 +129,6 @@ const CategoryEdit = ({ open, onClose, category, onSave }) => {
 
         <Box mt={3} display="flex" justifyContent="space-between">
           <Button
-=======
-           <Box mt={3} display="flex" justifyContent="space-between">
-        <Button
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
             onClick={handleCancel}
             variant="outlined"
             style={{

@@ -26,16 +26,11 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-<<<<<<< HEAD
       const response = await loginAPI(formData); // Đảm bảo loginAPI trả về JSON đã được parse
-=======
-      const response = await loginAPI(formData); // Make sure loginAPI returns the parsed JSON response
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       setFormData({
         email: '',
         password: ''
       });
-<<<<<<< HEAD
 
       if (response.error) {
         if (response.error === "Tài khoản chưa được xác nhận. Vui lòng kiểm tra email của bạn.") {
@@ -52,16 +47,6 @@ const Login = () => {
       }
     } catch (error) {
       toast.error('Đăng nhập thất bại. Vui lòng thử lại.');
-=======
-      
-      const id = response.id;
-      localStorage.setItem('id', id);
-      toast.success(response.message || 'Đăng nhập thành công');
-      login(id); // Update the auth context with id
-      navigate('/'); // Navigate to the homepage on successful login
-    } catch (error) {
-      toast.error('Login failed. Please try again.');
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     }
   };
 

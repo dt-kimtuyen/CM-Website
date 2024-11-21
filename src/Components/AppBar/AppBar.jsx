@@ -93,11 +93,7 @@ const AppBarComponent = ({ updateCartItems }) => {
     <>
       <AppBar position="static" sx={{ background: '#f2f3f4' }} elevation={0}>
         <Toolbar>
-<<<<<<< HEAD
           
-=======
-          <LogoImage src="https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/logo.png?1718181939137" alt="Logo"  />
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           <Search sx={{ backgroundColor: 'white' }}>
             <SearchIconWrapper sx={{ backgroundColor: 'white' }}>
               <SearchIcon />

@@ -11,22 +11,14 @@ const ContactPage = () => {
     <div style={styles.container}>
       <div style={styles.contactInfo}>
         <h2 style= {{fontSize :'16px ' ,textTransform : 'uppercase'}} >NƠI GIẢI ĐÁP TOÀN BỘ MỌI THẮC MẮC CỦA BẠN? </h2>
-<<<<<<< HEAD
         <p style={{ marginBottom : '-15px'}}>CM FASHION - Cửa hàng thời trang trực tuyến với các mẫu quần áo mới nhất, chất lượng cao.</p>
-=======
-        <p style={{ marginBottom : '-15px'}}>Bean Farm - Siêu thị trực tuyến mua sắm nông sản, chất lượng, tươi xanh.</p>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         <p style={styles.highlight}>Giá siêu tốt - Giao siêu tốc.</p>
         
         <div style={styles.infoItem}>
           <div style={styles.icon}>&#x1F4CD;</div>
           <div>
             <strong>Địa chỉ</strong>
-<<<<<<< HEAD
             <p style={ {marginTop : '-2px'}}>77 Tân Hòa Phường Hiệp Phú, TP.HCM</p>
-=======
-            <p style={ {marginTop : '-2px'}}>Lê Văn Chí, Phường Linh Trung, Quận Thủ Đức, TP.HCM</p>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </div>
         </div>
 
@@ -34,11 +26,7 @@ const ContactPage = () => {
           <div style={styles.icon}>&#x1F551;</div>
           <div>
             <strong>Thời gian làm việc</strong>
-<<<<<<< HEAD
             <p style={ {marginTop : '-2px'}}>8h - 22h từ thứ 2 đến thứ 7</p>
-=======
-            <p style={ {marginTop : '-2px'}}>8h - 22h từ thứ 2 đến chủ nhật</p>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </div>
         </div>
 
@@ -46,11 +34,7 @@ const ContactPage = () => {
           <div style={styles.icon}>&#x260E;</div>
           <div>
             <strong>Hotline</strong>
-<<<<<<< HEAD
             <p style={ {marginTop : '-2px'}}>0345257432</p>
-=======
-            <p style={ {marginTop : '-2px'}}>0855005506</p>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </div>
         </div>
 
@@ -58,11 +42,7 @@ const ContactPage = () => {
           <div style={styles.icon}>&#x2709;</div>
           <div>
             <strong>Email</strong>
-<<<<<<< HEAD
             <p style={ {marginTop : '-2px'}}>cmfashion@gmail</p>
-=======
-            <p style={ {marginTop : '-2px'}}>tincui012@gmail</p>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </div>
         </div>
         

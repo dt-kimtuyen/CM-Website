@@ -10,18 +10,14 @@ import {
   FormControlLabel,
   Radio,
   Divider,
-<<<<<<< HEAD
   MenuItem,
   Select,
   InputLabel,
   FormControl,
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 } from "@mui/material";
 import { toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-<<<<<<< HEAD
 import {
   fetchCartItemsAPI,
   fetchAllVoucherForAccountAPI,
@@ -50,32 +46,13 @@ const CheckoutPage = () => {
   const [customerInfo, setCustomerInfo] = useState({
     address: "",
     name: "",
-=======
-import { fetchCartItemsAPI, addToOrderCustomerAPI, deleteCartItemAPI, initiateVNPAYPaymentAPI } from "../../../../apis";
-import { useNavigate } from 'react-router-dom';
-import qs from 'qs';
-
-const CheckoutPage = () => {
-  const [shippingMethod, setShippingMethod] = useState("delivery");
-  const [paymentMethod, setPaymentMethod] = useState("bankTransfer");
-  const [discountCode, setDiscountCode] = useState("");
-  const navigate = useNavigate();
-
-  const [customerInfo, setCustomerInfo] = useState({
-    address: "Phường Tân Định, Quận 1, TP Hồ Chí Minh",
-    name: "Huỳnh Trọng Tín",
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     phone: "",
     note: "",
   });
   const [cartItems, setCartItems] = useState([]);
-<<<<<<< HEAD
   const [vouchers, setVouchers] = useState([]);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-=======
-  const [loading, setLoading] = useState(false);
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
   useEffect(() => {
     const accountId = localStorage.getItem('id');
@@ -86,7 +63,6 @@ const CheckoutPage = () => {
       .catch(error => {
         console.error('Error fetching cart items:', error);
       });
-<<<<<<< HEAD
 
     fetchAllVoucherForAccountAPI(accountId)
       .then(data => {
@@ -95,8 +71,6 @@ const CheckoutPage = () => {
       .catch(error => {
         console.error('Error fetching vouchers:', error);
       });
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   }, []);
 
   const handleInputChange = (e) => {
@@ -104,7 +78,6 @@ const CheckoutPage = () => {
     setCustomerInfo({ ...customerInfo, [name]: value });
   };
 
-<<<<<<< HEAD
   const handleApplyDiscount = () => {
     const selected = vouchers.find(v => v.code === selectedVoucher);
     if (selected) {
@@ -272,109 +245,6 @@ const calculateTotal = () => {
   
 
   return (
-=======
-  const calculateSubtotal = () => {
-    let subtotal = 0;
-    cartItems.forEach(item => {
-      subtotal += item.product.price * item.quantity;
-    });
-    return subtotal;
-  };
-
-  const calculateTotal = () => {
-    const subtotal = calculateSubtotal();
-    const shippingFee = 40000;
-    return subtotal + shippingFee;
-  };
-
-  const handlePlaceOrder = () => {
-    setLoading(true);
-
-    const orderDetails = cartItems.map(item => ({
-        quantity: item.quantity,
-        product: {
-            id: item.product.id,
-            name: item.product.name,
-            price: item.product.price
-        },
-    }));
-
-    const orderData = {
-        customerName: customerInfo.name,
-        date: new Date().toISOString().slice(0, 10),
-        address: customerInfo.address,
-        total: calculateTotal(),
-        paymentStatus: "Đã thanh toán",
-        shippingStatus: paymentMethod === "bankTransfer" ? "Chuyển khoản VNPay" : "Thanh toán khi nhận hàng",
-        account: {
-            id: localStorage.getItem('id'),
-            email: "tincui012gmail.com"
-        },
-        orderDetails: orderDetails,
-    };
-
-    if (paymentMethod === "bankTransfer") {
-        // Call VNPAY API to initiate payment
-        initiateVNPAYPaymentAPI(orderData)
-            .then(paymentUrl => {
-                window.location.href = paymentUrl; 
-                const deletePromises = cartItems.map(item => deleteCartItemAPI(item.id));
-                Promise.all(deletePromises)
-                    .then(() => {
-                        setCartItems([]);
-                    })
-                    .catch(error => {
-                        console.error('Error deleting cart items:', error);
-                        toast.error("Đã xảy ra lỗi khi xóa sản phẩm từ giỏ hàng.");
-                    });
-            })
-            .catch(error => {
-                console.error('Error initiating VNPAY payment:', error);
-                toast.error("Đã xảy ra lỗi khi khởi tạo thanh toán VNPAY.");
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    } else {
-        // Handle other payment methods (e.g., COD)
-        addToOrderCustomerAPI(orderData)
-            .then(response => {
-                const { id: orderId } = response;
-                toast.success("Đặt hàng thành công!");
-                const queryString = qs.stringify({ orderData: encodeURIComponent(JSON.stringify({ ...orderData, orderId })) });
-                navigate(`/customer/confirm?${queryString}`);
-                const deletePromises = cartItems.map(item => deleteCartItemAPI(item.id));
-                Promise.all(deletePromises)
-                    .then(() => {
-                        setCartItems([]);
-                    })
-                    .catch(error => {
-                        console.error('Error deleting cart items:', error);
-                        toast.error("Đã xảy ra lỗi khi xóa sản phẩm từ giỏ hàng.");
-                    });
-
-                setShippingMethod("delivery");
-                setPaymentMethod("bankTransfer");
-                setDiscountCode("");
-                setCustomerInfo({
-                    address: "Huỳnh Trọng Tín, Phường Tân Định, Quận 1, TP Hồ Chí Minh",
-                    name: "Huỳnh Trọng Tín",
-                    phone: "",
-                    note: "",
-                });
-            })
-            .catch(error => {
-                console.error('Error placing order:', error);
-                toast.error("Đã xảy ra lỗi khi đặt hàng. Vui lòng thử lại sau.");
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }
-};
-  
-return (
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     <Container>
       <Typography variant="body2" style={{ marginTop: 16, fontSize: "20px" }}>
         <a
@@ -495,7 +365,6 @@ return (
             <Typography variant="h4" fontSize="20px" gutterBottom>
               Đơn hàng ({cartItems.length} sản phẩm)
             </Typography>
-<<<<<<< HEAD
             {cartItems.map((item, index) => {
               const isExpired = isDiscountExpired(item.product.discountExpiration);
               return (
@@ -580,64 +449,6 @@ return (
                 Bạn không có mã giảm giá nào.
               </Typography>
             )}
-=======
-            {cartItems.map((item, index) => (
-              <Grid
-                container
-                spacing={2}
-                key={index}
-                style={{ marginTop: 16, alignItems: "center" }}
-              >
-                <Grid item xs={3}>
-                  <img
-                    src={item.product.image}
-                    alt={item.product.name}
-                    style={{ width: "100%" }}
-                  />
-                </Grid>
-                <Grid item xs={9}>
-                  <Typography variant="h6">{item.product.name}</Typography>
-                  <Typography>
-                    {item.product.price.toLocaleString("vi-VN", {
-                      style: "currency",
-                      currency: "VND",
-                    })}
-                  </Typography>
-                  <Typography>Số lượng: {item.quantity}</Typography>
-                </Grid>
-              </Grid>
-            ))}
-
-            <Grid
-              container
-              spacing={1}
-              alignItems="center"
-              style={{ marginTop: 16 }}
-            >
-              <Grid item xs={8}>
-                <TextField
-                  label="Nhập mã giảm giá"
-                  fullWidth
-                  value={discountCode}
-                  onChange={(e) => setDiscountCode(e.target.value)}
-                />
-              </Grid>
-              <Grid item xs={4}>
-                <Button
-                  variant="contained"
-                  fullWidth
-                  style={{ height: "45px" }}
-                  onClick={() =>
-                    alert(
-                      "Functionality for applying discount code is not implemented."
-                    )
-                  }
-                >
-                  Áp dụng
-                </Button>
-              </Grid>
-            </Grid>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
             <Typography
               variant="h5"
@@ -654,7 +465,6 @@ return (
               </span>
             </Typography>
             <Typography variant="h5" marginBottom="20px" fontSize="16px">
-<<<<<<< HEAD
                 Phí vận chuyển: 
                 <span style={{ color: "red" }}>
                   {(40000 - applyVoucher(calculateSubtotal(), 40000).shippingDiscount).toLocaleString("vi-VN", {
@@ -664,10 +474,6 @@ return (
                 </span>
               </Typography>
 
-=======
-              Phí vận chuyển: <span style={{ color: "red" }}>40.000₫</span>
-            </Typography>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
             <Divider />
             <Typography variant="h5" marginTop="20px" fontSize="21px">
               Tổng tiền:{" "}
@@ -695,8 +501,4 @@ return (
   );
 };
 
-<<<<<<< HEAD
 export default CheckoutPage;
-=======
-export default CheckoutPage;
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c

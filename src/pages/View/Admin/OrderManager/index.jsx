@@ -1,15 +1,7 @@
-<<<<<<< HEAD
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import Dashboard from "../index";
 import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined";
-=======
-import { useState } from "react";
-import styled from "styled-components";
-import Dashboard from "../index";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import DeleteIcon from "@mui/icons-material/Delete";
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 import OrderDetail from "../OrderDetail/index";
 import {
   Dialog,
@@ -20,7 +12,6 @@ import {
   Typography,
   Snackbar,
   Alert,
-<<<<<<< HEAD
   TextField,
   Paper,
   Table,
@@ -45,50 +36,6 @@ const OrderIndex = () => {
   });
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedOrderId, setSelectedOrderId] = useState(null);
-=======
-  TextField, // Import TextField from MUI
-} from "@mui/material";
-
-const initialOrders = [
-  {
-    invoiceNo: "11110",
-    orderTime: "Jun 17, 2024 3:31 PM",
-    customerName: "xx xx",
-    method: "Cash",
-    amount: "€207.83",
-    status: "Pending",
-  },
-  {
-    invoiceNo: "11107",
-    orderTime: "Jun 17, 2024 6:48 AM",
-    customerName: "de de",
-    method: "Cash",
-    amount: "€1059.00",
-    status: "Cancel",
-  },
-  {
-    invoiceNo: "11109",
-    orderTime: "Jun 17, 2024 6:41 AM",
-    customerName: "Jhonny Does",
-    method: "Cash",
-    amount: "€3300.00",
-    status: "Processing",
-  },
-];
-
-const OrderIndex = () => {
-  const [orders, setOrders] = useState(initialOrders);
-  const [filteredOrders, setFilteredOrders] = useState(initialOrders);
-  const [filters, setFilters] = useState({
-    customerName: "",
-    status: "",
-    method: "",
-    startDate: "",
-    endDate: "",
-  });
-  const [searchTerm, setSearchTerm] = useState(""); // Add state for search term
-  const [selectedOrder, setSelectedOrder] = useState(null);
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const [openConfirmDialog, setOpenConfirmDialog] = useState(false);
   const [orderToDelete, setOrderToDelete] = useState(null);
   const [snackbar, setSnackbar] = useState({
@@ -97,7 +44,6 @@ const OrderIndex = () => {
     severity: "success",
   });
 
-<<<<<<< HEAD
   useEffect(() => {
     const fetchOrders = async () => {
       try {
@@ -126,8 +72,6 @@ const OrderIndex = () => {
     fetchOrders();
   }, []);
 
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
     setFilters((prevFilters) => ({ ...prevFilters, [name]: value }));
@@ -135,7 +79,6 @@ const OrderIndex = () => {
 
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-<<<<<<< HEAD
   };
   const handleViewDetail = (order) => {
     setSelectedOrderId(order.invoiceNo);
@@ -147,10 +90,6 @@ const OrderIndex = () => {
   useEffect(() => {
     applyFilters();
   }, [filters, searchTerm]);
-=======
-    applyFilters();
-  };
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
   const applyFilters = () => {
     let filtered = orders;
@@ -167,23 +106,14 @@ const OrderIndex = () => {
       filtered = filtered.filter((order) => order.status === filters.status);
     }
 
-<<<<<<< HEAD
     if (filters.payment) {
       filtered = filtered.filter((order) => order.method === filters.payment);
-=======
-    if (filters.method) {
-      filtered = filtered.filter((order) => order.method === filters.method);
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     }
 
     if (filters.startDate) {
       filtered = filtered.filter(
-<<<<<<< HEAD
         (order) =>
           new Date(order.orderTime) >= new Date(filters.startDate)
-=======
-        (order) => new Date(order.orderTime) >= new Date(filters.startDate)
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       );
     }
 
@@ -195,13 +125,9 @@ const OrderIndex = () => {
 
     if (searchTerm) {
       filtered = filtered.filter((order) =>
-<<<<<<< HEAD
         order.customerName
           .toLowerCase()
           .includes(searchTerm.toLowerCase())
-=======
-        order.customerName.toLowerCase().includes(searchTerm.toLowerCase())
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       );
     }
 
@@ -212,7 +138,6 @@ const OrderIndex = () => {
     setFilters({
       customerName: "",
       status: "",
-<<<<<<< HEAD
       payment: "",
       startDate: "",
       endDate: "",
@@ -222,30 +147,11 @@ const OrderIndex = () => {
   };
 
  
-=======
-      method: "",
-      startDate: "",
-      endDate: "",
-    });
-    setSearchTerm(""); // Reset search term
-    setFilteredOrders(orders);
-  };
-
-  const handleViewDetail = (order) => {
-    setSelectedOrder(order);
-  };
-
-  const handleCloseDetail = () => {
-    setSelectedOrder(null);
-  };
-
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const handleDeleteOrder = (order) => {
     setOrderToDelete(order);
     setOpenConfirmDialog(true);
   };
 
-<<<<<<< HEAD
   const confirmDeleteOrder = async () => {
     try {
       await deleteOrderAPI(orderToDelete.invoiceNo);
@@ -275,29 +181,12 @@ const OrderIndex = () => {
       setOpenConfirmDialog(false);
       setOrderToDelete(null);
     }
-=======
-  const confirmDeleteOrder = () => {
-    setOrders((prevOrders) =>
-      prevOrders.filter((order) => order.invoiceNo !== orderToDelete.invoiceNo)
-    );
-    setFilteredOrders((prevOrders) =>
-      prevOrders.filter((order) => order.invoiceNo !== orderToDelete.invoiceNo)
-    );
-    setOpenConfirmDialog(false);
-    setOrderToDelete(null);
-    setSnackbar({
-      open: true,
-      message: "Order deleted successfully!",
-      severity: "success",
-    });
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   };
 
   const handleCloseSnackbar = () => {
     setSnackbar({ ...snackbar, open: false });
   };
 
-<<<<<<< HEAD
   const handleStatusChange = async (invoiceNo, newStatus) => {
     try {
       const orderToUpdate = orders.find(
@@ -363,22 +252,15 @@ const OrderIndex = () => {
     }
   };
 
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   return (
     <Dashboard>
       <OrderManager>
         <Header>
-<<<<<<< HEAD
           <Typography variant="h6" style={{ marginBottom: 16 }}>
             Quản lý hóa đơn
           </Typography>
           <button style={{ color: 'black' }}>Xuất đơn hàng</button>
 
-=======
-          <h1>Orders</h1>
-          <button>Download All Orders</button>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         </Header>
         <FilterSection>
           <TextField
@@ -388,22 +270,11 @@ const OrderIndex = () => {
             value={searchTerm}
             onChange={handleSearchChange}
           />
-<<<<<<< HEAD
-=======
-          <input
-            type="text"
-            placeholder="Search by Customer Name"
-            name="customerName"
-            value={filters.customerName}
-            onChange={handleFilterChange}
-          />
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           <select
             name="status"
             value={filters.status}
             onChange={handleFilterChange}
           >
-<<<<<<< HEAD
             <option value="">Vận chuyển</option>
             <option value="Hủy bỏ">Hủy bỏ</option>
             <option value="Đang xử lý">Đang xử lý</option>
@@ -417,22 +288,6 @@ const OrderIndex = () => {
             <option value="">Phương thức</option>
             <option value="Chuyển khoản VNPay">Chuyển khoản</option>
             <option value="Thanh toán khi nhận hàng">Tiền mặt</option>
-=======
-            <option value="">Status</option>
-            <option value="Pending">Pending</option>
-            <option value="Cancel">Cancel</option>
-            <option value="Processing">Processing</option>
-            <option value="Delivered">Delivered</option>
-          </select>
-          <select
-            name="method"
-            value={filters.method}
-            onChange={handleFilterChange}
-          >
-            <option value="">Method</option>
-            <option value="Cash">Cash</option>
-            <option value="Card">Card</option>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </select>
           <input
             type="date"
@@ -446,7 +301,6 @@ const OrderIndex = () => {
             value={filters.endDate}
             onChange={handleFilterChange}
           />
-<<<<<<< HEAD
           <button onClick={applyFilters} style={{ background: "#4caf50",color: 'black' }}>
             Lọc
           </button>
@@ -498,64 +352,12 @@ const OrderIndex = () => {
         </OrderTable>
         {selectedOrderId && (
           <OrderDetail orderId={selectedOrderId} onClose={handleCloseDetail} />
-=======
-          <button onClick={applyFilters}>Filter</button>
-          <button onClick={resetFilters}>Reset</button>
-        </FilterSection>
-        <OrderTable>
-          <thead>
-            <tr>
-              <th>INVOICE NO</th>
-              <th>ORDER TIME</th>
-              <th>CUSTOMER NAME</th>
-              <th>METHOD</th>
-              <th>AMOUNT</th>
-              <th>STATUS</th>
-              <th>ACTION</th>
-              <th>INVOICE</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredOrders.map((order) => (
-              <StyledTableRow key={order.invoiceNo}>
-                <td>{order.invoiceNo}</td>
-                <td>{order.orderTime}</td>
-                <td>{order.customerName}</td>
-                <td>{order.method}</td>
-                <td>{order.amount}</td>
-                <td className={`status ${order.status.toLowerCase()}`}>
-                  {order.status}
-                </td>
-                <td>
-                  <select defaultValue={order.status}>
-                    <option value="Pending">Pending</option>
-                    <option value="Cancel">Cancel</option>
-                    <option value="Processing">Processing</option>
-                    <option value="Delivered">Delivered</option>
-                  </select>
-                </td>
-                <td>
-                  <IconButton onClick={() => handleViewDetail(order)}>
-                    <VisibilityIcon />
-                  </IconButton>
-                  <IconButton onClick={() => handleDeleteOrder(order)}>
-                    <DeleteIcon color="error" />
-                  </IconButton>
-                </td>
-              </StyledTableRow>
-            ))}
-          </tbody>
-        </OrderTable>
-        {selectedOrder && (
-          <OrderDetail order={selectedOrder} onClose={handleCloseDetail} />
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         )}
       </OrderManager>
       <Dialog
         open={openConfirmDialog}
         onClose={() => setOpenConfirmDialog(false)}
       >
-<<<<<<< HEAD
         <DialogTitle>Xóa đơn hàng</DialogTitle>
         <DialogContent>
           <Typography>
@@ -568,18 +370,6 @@ const OrderIndex = () => {
           </Button>
           <Button onClick={confirmDeleteOrder} color="error">
             Xóa
-=======
-        <DialogTitle>Delete Order</DialogTitle>
-        <DialogContent>
-          <Typography>Are you sure you want to delete this order?</Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpenConfirmDialog(false)} color="primary">
-            Cancel
-          </Button>
-          <Button onClick={confirmDeleteOrder} color="error">
-            Delete
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </Button>
         </DialogActions>
       </Dialog>
@@ -602,18 +392,7 @@ const OrderIndex = () => {
 
 export default OrderIndex;
 
-<<<<<<< HEAD
 
-=======
-const StyledTableRow = styled.tr`
-  &:nth-of-type(even) {
-    background-color: #f9f9f9;
-  }
-  &:hover {
-    background-color: #f1f1f1;
-  }
-`;
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
 const OrderManager = styled.div`
   padding: 20px;
@@ -697,14 +476,7 @@ const OrderTable = styled.table`
     background-color: #f8f9fa;
   }
 
-<<<<<<< HEAD
   
-=======
-  .status {
-    font-weight: bold;
-  }
-
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   .status.pending {
     color: #ffc107;
   }

@@ -21,16 +21,12 @@ import {
   Alert,
 } from "@mui/material";
 import { Link } from "react-router-dom";
-<<<<<<< HEAD
 import {
   DeleteOutlineOutlined as DeleteOutlineOutlinedIcon,
   EditCalendarOutlined as EditCalendarOutlinedIcon,
   FilterList,
   GetApp,
 } from "@mui/icons-material";
-=======
-import { DeleteOutlineOutlined as DeleteOutlineOutlinedIcon, EditCalendarOutlined as EditCalendarOutlinedIcon, FilterList, GetApp } from "@mui/icons-material";
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 import Dashboard from "../index";
 import CategoryEdit from "../CategoryManager/Edit";
 
@@ -50,7 +46,6 @@ const StyledTableContainer = styled(TableContainer)`
 const StyledTable = styled.table`
   width: 100%;
   border-collapse: collapse;
-<<<<<<< HEAD
 
   th,
   td {
@@ -62,8 +57,6 @@ const StyledTable = styled.table`
   th {
     background-color: #f8f9fa;
   }
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 `;
 
 const StyledTableCell = styled(TableCell)`
@@ -155,16 +148,12 @@ const CategoryIndex = () => {
         severity: "success",
       });
     } catch (error) {
-<<<<<<< HEAD
       setOpenDeleteDialog(false);
       setSnackbar({
         open: true,
         message: error.response?.data,
         severity: "error",
       });
-=======
-      console.error("Error deleting category:", error);
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     }
   };
 
@@ -204,16 +193,10 @@ const CategoryIndex = () => {
     setSearchDescription("");
   };
 
-<<<<<<< HEAD
   const filteredCategories = categories.filter(
     (category) =>
       category.name.toLowerCase().includes(searchName.toLowerCase()) &&
       category.description.toLowerCase().includes(searchDescription.toLowerCase())
-=======
-  const filteredCategories = categories.filter((category) =>
-    category.name.toLowerCase().includes(searchName.toLowerCase()) &&
-    category.description.toLowerCase().includes(searchDescription.toLowerCase())
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   );
 
   return (
@@ -235,11 +218,7 @@ const CategoryIndex = () => {
           <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
-<<<<<<< HEAD
               label="Lọc Loại xuất khẩu"
-=======
-               label="Lọc Loại xuất khẩu"
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
               variant="outlined"
               value={searchDescription}
               onChange={handleSearchDescriptionChange}
@@ -284,19 +263,11 @@ const CategoryIndex = () => {
             </TableHead>
             <TableBody>
               {filteredCategories.map((category) => (
-<<<<<<< HEAD
                 <TableRow key={category.id}>
                   <TableCell>{category.id}</TableCell>
                   <TableCell>{category.name}</TableCell>
                   <TableCell>{category.description}</TableCell>
                   <TableCell>
-=======
-                <StyledTableRow key={category.id}>
-                  <StyledTableCell>{category.id}</StyledTableCell>
-                  <StyledTableCell>{category.name}</StyledTableCell>
-                  <StyledTableCell>{category.description}</StyledTableCell>
-                  <StyledTableCell>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
                     <MuiIconButton onClick={() => handleEdit(category)}>
                       <EditCalendarOutlinedIcon color="secondary" />
                     </MuiIconButton>
@@ -305,13 +276,8 @@ const CategoryIndex = () => {
                     >
                       <DeleteOutlineOutlinedIcon color="error" />
                     </MuiIconButton>
-<<<<<<< HEAD
                   </TableCell>
                 </TableRow>
-=======
-                  </StyledTableCell>
-                </StyledTableRow>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
               ))}
             </TableBody>
           </StyledTable>

@@ -16,7 +16,6 @@ import {
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import DeleteIcon from '@mui/icons-material/Delete';
-<<<<<<< HEAD
 import { fetchCartItemsAPI, updateCartItemAPI, deleteCartItemAPI, fetchAllVoucherAPI } from '../../../../apis';
 import { toast } from 'react-toastify';
 import ChatAI from '../../../../Components/ChatAI/ChatAI';
@@ -40,16 +39,6 @@ const ShoppingCart = () => {
   const accountId = localStorage.getItem('id');
 
   // Fetch cart items
-=======
-import { fetchCartItemsAPI, updateCartItemAPI, deleteCartItemAPI } from '../../../../apis';
-import { toast } from 'react-toastify';
-import ChatAI from '../../../../Components/ChatAI/ChatAI';
-
-const ShoppingCart = () => {
-  const [products, setProducts] = useState([]);
-  const accountId = localStorage.getItem('id');
-
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const fetchCartItems = async () => {
     try {
       const data = await fetchCartItemsAPI(accountId);
@@ -60,7 +49,6 @@ const ShoppingCart = () => {
     }
   };
 
-<<<<<<< HEAD
   // Fetch vouchers
   const fetchVouchers = async () => {
     try {
@@ -80,13 +68,6 @@ const ShoppingCart = () => {
   }, [accountId]);
 
   // Update cart items
-=======
-  useEffect(() => {
-    fetchCartItems();
-  }, [accountId]);
-
-  // Define updateCartItems function
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const updateCartItems = async () => {
     try {
       const data = await fetchCartItemsAPI(accountId);
@@ -97,10 +78,7 @@ const ShoppingCart = () => {
     }
   };
 
-<<<<<<< HEAD
   // Handle quantity change
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const handleQuantityChange = async (id, delta) => {
     const updatedProducts = products.map(product => {
       if (product.id === id) {
@@ -116,13 +94,7 @@ const ShoppingCart = () => {
     setProducts(updatedProducts);
 
     try {
-<<<<<<< HEAD
       await updateCartItemAPI(id, updatedProducts.find(p => p.id === id).quantity);
-=======
-      // Update the cart item with the new quantity
-      await updateCartItemAPI(id, updatedProducts.find(p => p.id === id).quantity);
-      // Call updateCartItems to refresh the cart icon in AppBar
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       updateCartItems();
     } catch (error) {
       console.error('Error updating cart item:', error);
@@ -130,20 +102,13 @@ const ShoppingCart = () => {
     }
   };
 
-<<<<<<< HEAD
   // Handle remove product
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const handleRemoveProduct = async (id) => {
     try {
       await deleteCartItemAPI(id);
       const updatedProducts = products.filter(product => product.id !== id);
       setProducts(updatedProducts);
       toast.success("Xóa sản phẩm thành công");
-<<<<<<< HEAD
-=======
-      // Call updateCartItems to refresh the cart icon in AppBar
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       updateCartItems();
     } catch (error) {
       console.error('Error removing cart item:', error);
@@ -151,7 +116,6 @@ const ShoppingCart = () => {
     }
   };
 
-<<<<<<< HEAD
   // Handle open voucher dialog
   const handleOpenVoucherDialog = () => {
     setOpenVoucherDialog(true);
@@ -169,8 +133,6 @@ const ShoppingCart = () => {
     toast.success(`Áp dụng mã giảm giá: ${voucherCode}`);
   };
 
-=======
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   return (
     <>
       <AppBarComponent updateCartItems={updateCartItems} />
@@ -214,7 +176,6 @@ const ShoppingCart = () => {
                       <Button startIcon={<DeleteIcon />} onClick={() => handleRemoveProduct(product.id)}>Xóa</Button>
                     </Grid>
                     <Grid item xs={2}>
-<<<<<<< HEAD
                       <div>
                         {isDiscountExpired(product.product.discountExpiration) ? (
                           <Typography style={{ color: 'red' }}>
@@ -231,11 +192,6 @@ const ShoppingCart = () => {
                           </>
                         )}
                       </div>
-=======
-                      <Typography style={{ color: 'red' }}>
-                        {product.product.price ? product.product.price.toLocaleString() + '₫' : 'Giá không có sẵn'}
-                      </Typography>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
                     </Grid>
                     <Grid item xs={3}>
                       <IconButton onClick={() => handleQuantityChange(product.id, -1)}>
@@ -253,15 +209,11 @@ const ShoppingCart = () => {
                     </Grid>
                     <Grid item xs={2}>
                       <Typography style={{ color: 'red' }}>
-<<<<<<< HEAD
                         {product.quantity && product.product.discount && !isDiscountExpired(product.product.discountExpiration)
                           ? (product.product.price * product.quantity * (1 - product.product.discount / 100)).toLocaleString() + '₫'
                           : product.quantity && product.product.price
                           ? (product.product.price * product.quantity).toLocaleString() + '₫'
                           : 'Tổng không có sẵn'}
-=======
-                        {product.quantity && product.product.price ? (product.product.price * product.quantity).toLocaleString() + '₫' : 'Tổng không có sẵn'}
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
                       </Typography>
                     </Grid>
                   </Grid>
@@ -298,7 +250,6 @@ const ShoppingCart = () => {
                 label="Xuất hóa đơn công ty"
                 style={{ marginTop: 16 }}
               />
-<<<<<<< HEAD
               <Typography variant="h6" fullWidth style={{ marginTop: 16, fontSize: '1.2rem' }}>Các mã giảm giá có thể áp dụng:</Typography>
               {vouchers.map(voucher => (
                 <Button
@@ -315,14 +266,6 @@ const ShoppingCart = () => {
                   total + (product.product.price * product.quantity * (1 - (isDiscountExpired(product.product.discountExpiration) ? 0 : (product.product.discount || 0) / 100)) || 0), 0
                 ).toLocaleString()}₫
               </Typography>
-=======
-              <Typography variant="h6" style={{ marginTop: 16, fontSize: '1.2rem' }}>Các mã giảm giá có thể áp dụng:</Typography>
-              <Button variant="outlined" style={{ margin: 4, border: '2px dashed #008b4b', fontSize: '0.8rem' }}>BEA50</Button>
-              <Button variant="outlined" style={{ margin: 4, border: '2px dashed #008b4b', fontSize: '0.8rem' }}>BEA15</Button>
-              <Button variant="outlined" style={{ margin: 4, border: '2px dashed #008b4b', fontSize: '0.8rem' }}>BEAN99K</Button>
-              <Button variant="outlined" style={{ margin: 4, border: '2px dashed #008b4b', fontSize: '0.8rem' }}>FREESHIP</Button>
-              <Typography variant="h6" style={{ marginTop: 16, color: 'red' }}>Tổng tiền: {products.reduce((total, product) => total + (product.product.price * product.quantity || 0), 0).toLocaleString()}₫</Typography>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
               <Button variant="contained" color="primary" href="/customer/checkout" fullWidth style={{ marginTop: 16 }}>
                 Thanh toán
               </Button>
@@ -330,7 +273,6 @@ const ShoppingCart = () => {
           </Grid>
         </Grid>
       </Container>
-<<<<<<< HEAD
       <VoucherDialog 
         open={openVoucherDialog} 
         onClose={handleCloseVoucherDialog} 
@@ -338,9 +280,6 @@ const ShoppingCart = () => {
         vouchers={vouchers} // Pass vouchers to the dialog
       />
       <ChatAI />
-=======
-      <ChatAI/>
->>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       <Footer />
     </>
   );
