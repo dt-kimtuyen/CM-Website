@@ -28,13 +28,18 @@ const SignUp = () => {
     e.preventDefault();
     
     if (formData.password !== formData.confirmPassword) {
+<<<<<<< HEAD
       setError('Mật khẩu không khớp');
+=======
+      setError('Passwords do not match');
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       return;
     }
   
     try {
       const response = await signupAPI(formData);
       
+<<<<<<< HEAD
       if (response?.message) {
         toast.success('Đăng ký thành công. Vui lòng kiểm tra email của bạn để xác nhận.');
         navigate('/account/Login')
@@ -47,6 +52,22 @@ const SignUp = () => {
       toast.error('Đăng ký thất bại. Vui lòng thử lại.');
     }
   }
+=======
+      // Check if response contains the message and id
+      if (response?.message) {
+        toast.success(response.message || 'Registration successful');
+      } else {
+        toast.error('Registration failed. Please try again.');
+      }
+      
+      // Navigate to the login page on successful registration
+      navigate('/');
+    } catch (error) {
+      setError('Registration failed. Please try again.');
+      toast.error('Registration failed. Please try again.');
+    }
+  };
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   
 
   const handleFacebookLogin = () => {

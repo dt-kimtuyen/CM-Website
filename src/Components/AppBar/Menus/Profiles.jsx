@@ -42,10 +42,14 @@ function Profiles() {
         throw new Error('User ID not found');
       }
       try {
+<<<<<<< HEAD
         
         const userData = await fetchUserInfoAPI(id);
         localStorage.setItem('id', id);
         localStorage.setItem('role', userData.role.name);
+=======
+        const userData = await fetchUserInfoAPI(id);
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         setUser(userData);
         setUsername(userData.username);
         setEmail(userData.email);
@@ -105,14 +109,22 @@ function Profiles() {
       const compressedImage = await compressImage(file);
       const reader = new FileReader();
       reader.onloadend = () => {
+<<<<<<< HEAD
         setSelectedImage(reader.result); 
+=======
+        setSelectedImage(reader.result); // Update selectedImage to the compressed image URL
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       };
       if (compressedImage) {
         reader.readAsDataURL(compressedImage);
       }
     } catch (error) {
       console.error('Error compressing image:', error);
+<<<<<<< HEAD
     
+=======
+      // Handle error
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     }
   };
 

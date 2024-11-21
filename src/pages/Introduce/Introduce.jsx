@@ -13,6 +13,7 @@ const Introduce = () => {
     <AppBarComponent/>
     <div style={styles.container}>
       <section style={styles.section}>
+<<<<<<< HEAD
       <img 
     src="https://images.unsplash.com/photo-1517841905240-472988babdf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDg5NjR8MHwxfGFsbHwxfHx8fHx8fHwxNjE3MzAxNzk0&ixlib=rb-1.2.1&q=80&w=1080" 
     alt="Thời trang nữ" 
@@ -23,6 +24,14 @@ const Introduce = () => {
           <h3 style={styles.subtitle}>Phong cách và Chất lượng</h3>
           <p style={styles.paragraph}>
           CM FASHION mang đến những bộ trang phục thời trang chất lượng cao, được tuyển chọn từ các nhà thiết kế hàng đầu. Chúng tôi không ngừng đổi mới, cập nhật các xu hướng thời trang quốc tế để mang lại trải nghiệm mua sắm đẳng cấp cho khách hàng tại Việt Nam.
+=======
+        <img src="https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/about2_banner.jpg?1716945232631" alt="Chất lượng và tươi xanh" style={styles.image} />
+        <div style={styles.textBlock}>
+          <h2 style={styles.title}>BEAN FARM</h2>
+          <h3 style={styles.subtitle}>Chất lượng và tươi xanh</h3>
+          <p style={styles.paragraph}>
+            Thực phẩm sạch, hay còn gọi là thực phẩm hữu cơ (organic) đang được ưa chuộng tại các nước phát triển. Các chuyên gia sức khỏe cộng đồng cho rằng tại Mỹ đã có những động thái mang tính cách mạng trong thói quen ăn uống. Trong vòng 10 năm qua các loại thực phẩm hữu cơ chỉ được bán tại một số cửa hàng nông sản ít ỏi, còn các nhà kinh doanh siêu thị cũng chẳng có khái niệm "thực phẩm hữu cơ". Nhưng hiện nay, loại thực phẩm này đã được bán đại trà khắp nơi. Tại châu Âu các loại thực phẩm hữu cơ được coi là biểu tượng của thực phẩm cho sức khỏe, có rất nhiều trang trại nông nghiệp thực hiện nuôi trồng các sản phẩm nông nghiệp theo những quy định thực phẩm hữu cơ.
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </p>
         </div>
       </section>
@@ -31,7 +40,11 @@ const Introduce = () => {
         <h2 style={styles.heading2Style}>TẦM NHÌN</h2>
         <h1 style={styles.heading1Style}>Tầm nhìn của chúng tôi</h1>
         <p style={styles.paragraphStyle}>
+<<<<<<< HEAD
         Chúng tôi mong muốn trở thành thương hiệu thời trang dẫn đầu trong khu vực Đông Nam Á, mang lại sự tự tin và phong cách cho mọi khách hàng thông qua các sản phẩm thời trang tinh tế và chất lượng cao.
+=======
+          Hiểu được vấn đề ấy, tôi và những người bạn đã tâm huyết thành lập công ty nông sản Bean Farm hữu cơ, với mong muốn nhập được nhiều sản phẩm tốt, chất lượng, có chứng nhận hữu cơ về cung cấp cho các nhà phân phối tại Việt Nam. Các thương hiệu lớn được chúng tôi đã tìm hiểu, phù hợp với tập quán sử dụng, mức thu nhập của người Việt Nam.
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         </p>
       </div>
       <div style={styles.imageSectionStyle}>
@@ -48,7 +61,11 @@ const Introduce = () => {
           <h2 style={styles.heading2Style}>MỤC TIÊU</h2>
           <h3 style={styles.heading1Style}>Mục tiêu của chúng tôi</h3>
           <p style={styles.paragraph}>
+<<<<<<< HEAD
           Trong tương lai, CM FASHION hướng đến việc mở rộng hệ thống cửa hàng tại các thành phố lớn trên cả nước, cung cấp dịch vụ mua sắm thời trang online thuận tiện và chuyên nghiệp, đồng thời nâng cao trải nghiệm mua sắm của khách hàng bằng các bộ sưu tập thời trang độc đáo.
+=======
+          Thật may mắn, hiện tại chúng tôi đã kết nối và phân phối cho các đối tác lớn ở Tp. Hồ Chí Mình và Hà Nội. Trong tương lai gần, chúng sẽ tôi sẽ đẩy mạnh phân phối sản phẩm về các tỉnh thành khác.
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </p>
         </div>
       </section>
@@ -149,4 +166,8 @@ const styles = {
 
 
 
+<<<<<<< HEAD
 export default Introduce; 
+=======
+export default Introduce;
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c

@@ -2,6 +2,7 @@ import axios from 'axios';
 
 export const loginAPI = async (credentials) => {
     const response = await axios.post('http://localhost:8080/api/account/login', credentials);
+<<<<<<< HEAD
     return response.data;
 };
 export const signupAPI = async (userData) => {
@@ -11,6 +12,13 @@ export const signupAPI = async (userData) => {
 
 export const fetchAllUserAPI = async () => {
     const response = await axios.get(`http://localhost:8080/api/account/all`);
+=======
+    return response.data; // Trả về dữ liệu từ phản hồi của máy chủ API
+};
+
+export const signupAPI = async (userData) => {
+    const response = await axios.post('http://localhost:8080/api/account/signup', userData);
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     return response.data;
 };
 
@@ -24,6 +32,7 @@ export const updateUserAPI = async (userId, updateData) =>
     const response = await axios.put(`http://localhost:8080/api/account/update/${userId}`,updateData)
     return response.data;
 }
+<<<<<<< HEAD
 //Role 
 export const fetchAllRolesAPI = async () => {
     const response = await axios.get(`http://localhost:8080/api/roles`);
@@ -88,16 +97,21 @@ export const deleteUserAPI = async (UserId, requesterId) => {
     return response.data;
 };
 
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 //Category
 export const fetchAllCategoriesAPI = async () => {
     const response = await axios.get(`http://localhost:8080/api/categories`);
     return response.data
 }
 
+<<<<<<< HEAD
 export const fetchCountCategoriesAPI = async () => {
     const response = await axios.get(`http://localhost:8080/api/categories/count`);
     return response.data
 }
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
 export const CreateCategoryAPI = async (updateData) => {
     const response = await axios.post(`http://localhost:8080/api/categories/create`, updateData)
@@ -117,10 +131,13 @@ export const deleteCategoryAPI = async (CategoryId) => {
 };
 
 //product
+<<<<<<< HEAD
 export const fetchManagerAdminProductsAPI = async () => {
     const response = await axios.get(`http://localhost:8080/api/product/admin`);
     return response.data
 }
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 export const fetchAllProductsAPI = async () => {
     const response = await axios.get(`http://localhost:8080/api/product`);
     return response.data
@@ -146,12 +163,15 @@ export const deleteProductAPI = async (ProductId) => {
     const response = await axios.delete(`http://localhost:8080/api/product/${ProductId}`);
     return response.data;
 };
+<<<<<<< HEAD
 
 //Discount 
 export const fetchAllDiscountsAPI = async () => {
     const response = await axios.get(`http://localhost:8080/api/discount/products`);
     return response.data
 }
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 // Cart
 
 export const fetchCartItemsAPI = async (accountId) => {
@@ -183,6 +203,7 @@ export const deleteCartItemAPI = async (cartItemId) => {
 
 //Order
 
+<<<<<<< HEAD
 export const fetchTotalPriceOrdersAPI = async () => {
     const response = await axios.get(`http://localhost:8080/api/orders/total`);
     return response.data;
@@ -191,6 +212,8 @@ export const fetchCountOrdersAPI = async () => {
     const response = await axios.get(`http://localhost:8080/api/orders/count`);
     return response.data;
 }
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 export const fetchAllOrdersAPI = async () => {
     const response = await axios.get(`http://localhost:8080/api/orders`);
     return response.data;
@@ -213,6 +236,7 @@ export const addToOrderCustomerAPI = async (updateData) => {
   
 };
 
+<<<<<<< HEAD
 
 
 export const updateOrderAPI = async (orderId, updateData) => {
@@ -226,6 +250,14 @@ export const updateOrderAPI = async (orderId, updateData) => {
   };
   
 
+=======
+export const updateOrderAPI = async (OrderId) => {
+  
+    const response = await axios.put(`http://localhost:8080/api/orders/${OrderId}`);
+    return response.data;
+  
+};
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
 
 export const deleteOrderAPI = async (OrderId) => {
@@ -234,6 +266,7 @@ export const deleteOrderAPI = async (OrderId) => {
 };
 
 
+<<<<<<< HEAD
 // News
 export const fetchAllNewsAPI = async () => {
     const response = await axios.get('http://localhost:8080/api/news');
@@ -309,6 +342,8 @@ export const deleteVoucherAPI = async (vouchersId) => {
     return response.data;
 };
 
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 //VNPAY
 export const initiateVNPAYPaymentAPI = async (orderData) => {
     const response = await axios.post(`http://localhost:8080/api/payment/create-payment`,orderData);

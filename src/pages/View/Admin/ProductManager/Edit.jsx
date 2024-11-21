@@ -6,6 +6,7 @@ import {
   Button,
   IconButton,
   Typography,
+<<<<<<< HEAD
   Select,
   MenuItem,
   FormControl,
@@ -17,11 +18,20 @@ import { updateProductAPI, fetchAllCategoriesAPI } from "../../../../apis";
 const ProductEdit = ({ open, onClose, product, onSave }) => {
   const [editedProduct, setEditedProduct] = useState({ ...product });
   const [categories, setCategories] = useState([]);
+=======
+} from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import { updateProductAPI } from "../../../../apis";
+
+const ProductEdit = ({ open, onClose, product, onSave }) => {
+  const [editedProduct, setEditedProduct] = useState({ ...product });
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
   useEffect(() => {
     setEditedProduct({ ...product });
   }, [product]);
 
+<<<<<<< HEAD
   useEffect(() => {
     const fetchCategories = async () => {
       try {
@@ -36,6 +46,8 @@ const ProductEdit = ({ open, onClose, product, onSave }) => {
     fetchCategories();
   }, []);
 
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const handleChange = (e) => {
     const { name, value } = e.target;
     setEditedProduct((prev) => ({
@@ -44,6 +56,7 @@ const ProductEdit = ({ open, onClose, product, onSave }) => {
     }));
   };
 
+<<<<<<< HEAD
   const handleCategoryChange = (e) => {
     const categoryId = e.target.value;
     const selectedCategory = categories.find(cat => cat.id === categoryId);
@@ -53,6 +66,8 @@ const ProductEdit = ({ open, onClose, product, onSave }) => {
     }));
   };
 
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const handleImageChange = (e) => {
     const file = e.target.files[0];
     if (file) {
@@ -133,6 +148,7 @@ const ProductEdit = ({ open, onClose, product, onSave }) => {
           variant="filled"
           InputProps={{ style: { backgroundColor: "#f9f9f9" } }}
         />
+<<<<<<< HEAD
         <FormControl fullWidth margin="normal" variant="filled">
           <InputLabel id="category-label">Danh mục</InputLabel>
           <Select
@@ -197,6 +213,8 @@ const ProductEdit = ({ open, onClose, product, onSave }) => {
           InputProps={{ style: { backgroundColor: "#f9f9f9" } }}
         />
 
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         <Button
           variant="contained"
           component="label"

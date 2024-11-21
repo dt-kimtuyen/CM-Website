@@ -21,18 +21,28 @@ import { useDropzone } from "react-dropzone";
 import { useNavigate } from "react-router-dom";
 import CloseIcon from "@mui/icons-material/Close";
 import Dashboard from "../index";
+<<<<<<< HEAD
 import { CreateProductAPI, fetchAllCategoriesAPI } from "../../../../apis";
+=======
+import { CreateProductAPI, fetchAllCategoriesAPI } from "../../../../apis"; // Assuming getAllCategories API function
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
 const ProductCreate = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
+<<<<<<< HEAD
   const [image, setImage] = useState(""); // Changed to store image as Data URL
   const [categories, setCategories] = useState([]);
   const [expirationDate, setExpirationDate] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const [discount, setDiscount] = useState("");
   const [discountExpiration, setDiscountExpiration] = useState("");
+=======
+  const [files, setFiles] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [categoryId, setCategoryId] = useState("");
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const [snackbar, setSnackbar] = useState({
     open: false,
     message: "",
@@ -44,17 +54,28 @@ const ProductCreate = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
+<<<<<<< HEAD
         const categoriesData = await fetchAllCategoriesAPI();
         setCategories(categoriesData);
+=======
+        const categoriesData = await fetchAllCategoriesAPI(); // Replace with your actual API call
+        setCategories(categoriesData);
+        // Set initial category ID if categories are available and not already set
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         if (categoriesData.length > 0 && !categoryId) {
           setCategoryId(categoriesData[0].id);
         }
       } catch (error) {
         console.error("Failed to fetch categories:", error);
+<<<<<<< HEAD
+=======
+        // Handle error
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       }
     };
 
     fetchCategories();
+<<<<<<< HEAD
   }, [categoryId]);
 
   // Image change handler
@@ -67,10 +88,17 @@ const ProductCreate = () => {
       };
       reader.readAsDataURL(file);
     }
+=======
+  }, [categoryId]); // Include categoryId as dependency if needed for specific re-fetching logic
+
+  const handleDrop = (acceptedFiles) => {
+    setFiles(acceptedFiles);
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
 
     // Validate form
     if (!title || !description || !price || !categoryId || !expirationDate) {
@@ -82,10 +110,13 @@ const ProductCreate = () => {
       return;
     }
 
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     const newProduct = {
       name: title,
       description: description,
       price: price,
+<<<<<<< HEAD
       image: image, // Use Data URL for image
       category: {
         id: categoryId,
@@ -97,12 +128,25 @@ const ProductCreate = () => {
 
     try {
       await CreateProductAPI(newProduct);
+=======
+      image: files.length > 0 ? URL.createObjectURL(files[0]) : "", // Temporary image URL
+      category: {
+        id: categoryId,
+      },
+    };
+
+    try {
+      // Call your API to create the product
+      await CreateProductAPI(newProduct);
+
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       setSnackbar({
         open: true,
         message: "Product created successfully!",
         severity: "success",
       });
 
+<<<<<<< HEAD
       // Reset form
       setTitle("");
       setDescription("");
@@ -110,6 +154,15 @@ const ProductCreate = () => {
       setImage(""); // Clear image
       setDiscount("");
       setDiscountExpiration("");
+=======
+      // Optionally reset form fields
+      setTitle("");
+      setDescription("");
+      setPrice("");
+      setFiles([]);
+
+      // Navigate to Product Manager or any other page
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       navigate("/admin/productManager");
     } catch (error) {
       console.error("Error creating product:", error);
@@ -125,6 +178,7 @@ const ProductCreate = () => {
     navigate("/admin/productManager");
   };
 
+<<<<<<< HEAD
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
       if (acceptedFiles.length > 0) {
@@ -132,6 +186,9 @@ const ProductCreate = () => {
       }
     },
   });
+=======
+  const { getRootProps, getInputProps } = useDropzone({ onDrop: handleDrop });
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
   return (
     <Dashboard>
@@ -181,6 +238,7 @@ const ProductCreate = () => {
                       textAlign: "center",
                     }}
                   >
+<<<<<<< HEAD
                     <input
                       {...getInputProps()}
                       type="file"
@@ -188,10 +246,14 @@ const ProductCreate = () => {
                       accept="image/*"
                       onChange={handleImageChange}
                     />
+=======
+                    <input {...getInputProps()} />
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
                     <Typography variant="body2">
                       Kéo hình ảnh của bạn vào đây (Chỉ *.jpeg, *.webp và *.png hình ảnh sẽ được chấp nhận)
                     </Typography>
                   </div>
+<<<<<<< HEAD
                   {image && (
                     <Box mt={2}>
                       <img
@@ -201,6 +263,8 @@ const ProductCreate = () => {
                       />
                     </Box>
                      )}
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
                 </Grid>
                 <Grid item xs={12}>
                   <TextField
@@ -210,7 +274,10 @@ const ProductCreate = () => {
                     onChange={(e) => setPrice(e.target.value)}
                     required
                     variant="filled"
+<<<<<<< HEAD
                     type="number" // Ensure numeric input
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
                   />
                 </Grid>
                 <Grid item xs={12}>
@@ -221,6 +288,10 @@ const ProductCreate = () => {
                       value={categoryId}
                       onChange={(e) => setCategoryId(e.target.value)}
                     >
+<<<<<<< HEAD
+=======
+                      {/* Render categories as options */}
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
                       {categories.map((category) => (
                         <MenuItem key={category.id} value={category.id}>
                           {category.name}
@@ -229,6 +300,7 @@ const ProductCreate = () => {
                     </Select>
                   </FormControl>
                 </Grid>
+<<<<<<< HEAD
                 <Grid item xs={12}>
                   <TextField
                     fullWidth
@@ -266,6 +338,8 @@ const ProductCreate = () => {
                     }}
                   />
                 </Grid>
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
               </Grid>
               <Box mt={3} display="flex" justifyContent="space-between">
                 <Button
@@ -295,6 +369,10 @@ const ProductCreate = () => {
           </Box>
         </Paper>
       </Container>
+<<<<<<< HEAD
+=======
+      {/* Snackbar for showing success or error messages */}
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       <Snackbar
         open={snackbar.open}
         autoHideDuration={6000}

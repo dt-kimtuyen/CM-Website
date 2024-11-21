@@ -27,7 +27,11 @@ import EditCalendarOutlinedIcon from '@mui/icons-material/EditCalendarOutlined';
 import Dashboard from "../index";
 import ProductEdit from "../ProductManager/Edit";
 import styled from "styled-components";
+<<<<<<< HEAD
 import { fetchManagerAdminProductsAPI, deleteProductAPI } from '../../../../apis'; // Import deleteProductAPI
+=======
+import { fetchAllProductsAPI, deleteProductAPI } from '../../../../apis'; // Import deleteProductAPI
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
 const index = () => {
   const [projects, setProjects] = useState([]);
@@ -48,7 +52,11 @@ const index = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+<<<<<<< HEAD
         const response = await fetchManagerAdminProductsAPI();
+=======
+        const response = await fetchAllProductsAPI();
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         setProjects(response);
       } catch (error) {
         setSnackbar({
@@ -74,7 +82,11 @@ const index = () => {
       setSnackbar({
         open: true,
         message: "Thêm sản phẩm thành công!",
+<<<<<<< HEAD
         severity: "success",
+=======
+        severity: "Thành Công",
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       });
       window.history.replaceState({}, document.title, location.pathname);
     }
@@ -96,7 +108,11 @@ const index = () => {
     setSnackbar({
       open: true,
       message: "Cập nhật sản phẩm thành công!",
+<<<<<<< HEAD
       severity: "success",
+=======
+      severity: "Thành Công",
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     });
   };
 
@@ -107,15 +123,22 @@ const index = () => {
 
   const handleConfirmDelete = async () => {
     try {
+<<<<<<< HEAD
       await deleteProductAPI(projectToDelete.id); // Gọi API xóa
       setProjects((prevProjects) =>
         prevProjects.filter((project) => project.id !== projectToDelete.id) // Cập nhật danh sách sản phẩm
+=======
+      await deleteProductAPI(projectToDelete.id); // Assuming deleteProductAPI takes product ID as argument
+      setProjects((prevProjects) =>
+        prevProjects.filter((project) => project.id !== projectToDelete.id)
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
       );
       setConfirmDialogOpen(false);
       setProjectToDelete(null);
       setSnackbar({
         open: true,
         message: "Xóa sản phẩm thành công!",
+<<<<<<< HEAD
         severity: "success",
       });
     } catch (error) {
@@ -123,11 +146,22 @@ const index = () => {
       setSnackbar({
         open: true,
         message: "Xóa sản phẩm thất bại.",
+=======
+        severity: "Thành công",
+      });
+    } catch (error) {
+      setSnackbar({
+        open: true,
+        message: "Failed to delete product.",
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         severity: "error",
       });
     }
   };
+<<<<<<< HEAD
   
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
   const handleCloseConfirmDialog = () => {
     setConfirmDialogOpen(false);
@@ -146,6 +180,7 @@ const index = () => {
   const filteredProjects = projects.filter((project) => {
     const matchesSearch = project.name.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesPrice = filterPrice === "" || project.price.toString().includes(filterPrice);
+<<<<<<< HEAD
   
     // Kiểm tra sản phẩm đã hết hạn (so sánh với ngày hiện tại)
     const isExpired = project.expirationDate ? new Date(project.expirationDate) < new Date() : false;
@@ -153,6 +188,10 @@ const index = () => {
     return (matchesSearch && matchesPrice) || isExpired;
   });
   
+=======
+    return matchesSearch && matchesPrice;
+  });
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -162,7 +201,11 @@ const index = () => {
     <Dashboard>
       <ProductManager>
         <Typography variant="h6" style={{ marginBottom: 16 }}>
+<<<<<<< HEAD
           Quản lý sản phẩm
+=======
+          Sản phẩm
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         </Typography>
         <Grid container spacing={2} alignItems="center">
           <Grid item xs={12} sm={6}>
@@ -172,7 +215,11 @@ const index = () => {
               variant="outlined"
               value={searchTerm}
               onChange={handleSearchChange}
+<<<<<<< HEAD
             />  
+=======
+            />
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </Grid>
           <Grid item xs={12} sm={6}>
             <TextField
@@ -213,14 +260,21 @@ const index = () => {
           </Grid>
         </Grid>
         <TableContainer component={Paper} style={{ marginTop: 16 }}>
+<<<<<<< HEAD
         <StyledTable>
             <TableHead>
               <TableRow>
+=======
+          <StyledTable>
+            <TableHead>
+            <StyledTableRow>
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
                 <StyledTableCell align="center">ID</StyledTableCell>
                 <StyledTableCell align="center">Hình ảnh</StyledTableCell>
                 <StyledTableCell align="center">Tên sản phẩm</StyledTableCell>
                 <StyledTableCell align="center">Chú thích</StyledTableCell>
                 <StyledTableCell align="center">Giá</StyledTableCell>
+<<<<<<< HEAD
                 <StyledTableCell align="center">Trạng thái</StyledTableCell>
                 <StyledTableCell align="center">Tác vụ</StyledTableCell>
               </TableRow>
@@ -280,11 +334,56 @@ const index = () => {
                   </StyledTableRow>
                 );
               })}
+=======
+                <StyledTableCell align="center">Tác vụ</StyledTableCell>
+              </StyledTableRow>
+            </TableHead>
+            <TableBody>
+              {filteredProjects.map((project) => (
+                <StyledTableRow key={project.id}>
+                  <StyledTableCell align="center">
+                    {project.id}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      style={{ width: 50, height: 50, objectFit: "cover" }}
+                    />
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {project.name}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {project.description}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    {project.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                  </StyledTableCell>
+                  <StyledTableCell align="center">
+                    <IconButton
+                      color="secondary"
+                      onClick={() => handleEditClick(project)}
+                    >
+                      <EditCalendarOutlinedIcon />
+                    </IconButton>
+                    <IconButton
+                      color="error"
+                      onClick={() => handleDeleteClick(project)}
+                    >
+                      <DeleteOutlineOutlinedIcon />
+                    </IconButton>
+                    
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
             </TableBody>
           </StyledTable>
         </TableContainer>
       </ProductManager>
 
+<<<<<<< HEAD
       <Dialog
         open={confirmDialogOpen}
         onClose={() => setConfirmDialogOpen(false)}
@@ -323,6 +422,47 @@ const index = () => {
         product={currentProject}
         onSave={handleSave}
       />
+=======
+        <Dialog
+          open={confirmDialogOpen}
+          onClose={() => setConfirmDialogOpen(false)}
+        >
+          <DialogTitle>Xóa sản phẩm</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Bạn chắc chắn muốn xóa sản phẩm này?
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseConfirmDialog} color="primary">
+              Hủy
+            </Button>
+            <Button onClick={handleConfirmDelete} color="error">
+              Xóa
+            </Button>
+          </DialogActions>
+        </Dialog>
+        <Snackbar
+          open={snackbar.open}
+          autoHideDuration={6000}
+          onClose={() => setSnackbar({ ...snackbar, open: false })}
+        >
+          <Alert
+            onClose={() => setSnackbar({ ...snackbar, open: false })}
+            severity={snackbar.severity}
+            variant="filled"
+          >
+            {snackbar.message}
+          </Alert>
+        </Snackbar>
+        <ProductEdit
+          open={open}
+          onClose={handleClose}
+          product={currentProject}
+          onSave={handleSave}
+        />
+        
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     </Dashboard>
   );
 };
@@ -335,6 +475,7 @@ const ProductManager = styled.div`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 `;
 
+<<<<<<< HEAD
 const StyledTableRow = styled(TableRow)`
   &.expired {
     background-color: #ffcccc; /* Màu nền đỏ nhạt cho sản phẩm hết hạn */
@@ -359,4 +500,17 @@ const StyledTable = styled.table`
   }
 `;
 
+=======
+const StyledTableCell = styled(TableCell)`
+`;
+const StyledTable = styled.table`
+  width: 100%;
+  border-collapse: collapse;
+`;
+const StyledTableRow = styled(TableRow)`
+  &:nth-of-type(odd) {
+    background-color: #f9f9f9;
+  }
+`;
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 export default index;

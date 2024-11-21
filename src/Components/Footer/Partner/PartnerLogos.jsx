@@ -1,6 +1,12 @@
 import React from 'react';
 
 const brandImages = [
+<<<<<<< HEAD
+=======
+  'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/img_brand_1.png?1716945232631',
+  'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/img_brand_2.png?1716945232631',
+  'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/img_brand_3.png?1716945232631',
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/img_brand_4.png?1716945232631',
   'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/img_brand_5.png?1716945232631',
   'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/img_brand_6.png?1716945232631'

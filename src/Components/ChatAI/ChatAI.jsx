@@ -26,7 +26,11 @@ const ChatAI = () => {
       try {
         const userQuery = {
           conversation_id: "123",
+<<<<<<< HEAD
           bot_id: "7423273985305608200",
+=======
+          bot_id: "7382936116925710343",
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           user: "29032201862555",
           query: input,
           stream: false

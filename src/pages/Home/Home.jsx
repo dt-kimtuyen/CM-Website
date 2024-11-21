@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useEffect, useState } from 'react';
+=======
+import React, { useEffect } from 'react';
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 import AppBarComponent from "../../Components/AppBar/AppBar";
 import Footer from "../../Components/Footer/Footer";
 import PartnerLogos from '../../Components/Footer/Partner/PartnerLogos';
@@ -7,6 +11,7 @@ import { Box, Grid, Card, CardContent, CardMedia, Typography, Toolbar } from '@m
 import 'swiper/swiper-bundle.css';
 import Swiper from 'swiper/bundle';
 import ChatAI from '../../Components/ChatAI/ChatAI';
+<<<<<<< HEAD
 import { fetchCountCategoriesAPI } from '../../apis';
 
 const Home = () => {
@@ -38,6 +43,21 @@ const Home = () => {
     fetchCategoryCounts();
 
     // Khởi tạo Swiper
+=======
+
+
+const categories = [
+  { title: 'Rau củ', image: 'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/danhmuc_1.png?1716945232631', products: 17 },
+  { title: 'Trái cây', image: 'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/danhmuc_2.png?1716945232631', products: 12 },
+  { title: 'Thịt', image: 'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/danhmuc_3.png?1716945232631', products: 10 },
+  { title: 'Trứng', image: 'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/danhmuc_4.png?1716945232631', products: 8 },
+  { title: 'Đồ uống', image: 'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/danhmuc_5.png?1716945232631', products: 11 },
+  { title: 'Bánh và sữa', image: 'https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/danhmuc_6.png?1716945232631', products: 0 },
+];
+
+const Home = () => {
+  useEffect(() => {
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     new Swiper('.swiper-container', {
       slidesPerView: 6,
       spaceBetween: 30,
@@ -46,7 +66,11 @@ const Home = () => {
         clickable: true,
       },
     });
+<<<<<<< HEAD
   }, []); // Chỉ chạy 1 lần khi component mount
+=======
+  }, []);
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
   return (
     <div>
@@ -59,9 +83,15 @@ const Home = () => {
               <CardMedia
                 component="img"
                 alt="Promotion"
+<<<<<<< HEAD
                 height="450"
                 image="https://res.cloudinary.com/dccqifics/image/upload/f_auto,q_auto/qmt5gjn2ova4rnakgkl2.jpg" // Path to the uploaded image
                 title="Clothing Giảm Giá Lớn"
+=======
+                height="350"
+                image="https://nuixanhfoods.vn/wp-content/uploads/2021/07/baner3.png" // Path to the uploaded image
+                title="Rau Tươi Giảm Giá Lớn"
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
               />
               <CardContent
                 style={{
@@ -71,17 +101,27 @@ const Home = () => {
                   color: 'white',
                 }}
               >
+<<<<<<< HEAD
                 <Toolbar />
+=======
+      <Toolbar />
+               
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
               </CardContent>
             </Card>
           </Grid>
         </Grid>
       </Box>
+<<<<<<< HEAD
 
       <Box p={3}>
         <Typography variant="h5" component="div" style={{ fontWeight: 'bold', fontSize: '25px' }}>
           Danh mục nổi bật
         </Typography>
+=======
+      <Box p={3}>
+      <Typography variant="h5" component="div" style={{ fontWeight: 'bold',fontSize: '25px' }}>Danh mục nổi bật</Typography>
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         <div className="swiper-container">
           <div className="swiper-wrapper">
             {categories.map((category, index) => (
@@ -110,12 +150,17 @@ const Home = () => {
                       height: '100px',
                     }}
                   />
+<<<<<<< HEAD
                   <Typography variant="h6" component="div" style={{ fontWeight: 'bold', textAlign: 'center' }}>
                     {category.title}
                   </Typography>
                   <Typography variant="body2" color="textSecondary" style={{ fontWeight: 'bold', textAlign: 'center' }}>
                     {category.products} sản phẩm
                   </Typography>
+=======
+                    <Typography variant="h6" component="div" style={{ fontWeight: 'bold', textAlign:'center' }}>{category.title}</Typography>
+                  <Typography variant="body2" color="textSecondary" style={{ fontWeight: 'bold', textAlign:'center' }}>{category.products} sản phẩm</Typography>
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
                 </div>
               </div>
             ))}
@@ -123,13 +168,25 @@ const Home = () => {
           <div className="swiper-pagination"></div>
         </div>
       </Box>
+<<<<<<< HEAD
 
       <Promotion />
       <PartnerLogos />
       <Footer />
       <ChatAI />
+=======
+      <Promotion/>
+
+      <PartnerLogos />
+      <Footer />
+      <ChatAI/>
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
     </div>
   );
 };
 
+<<<<<<< HEAD
 export default Home;
+=======
+export default Home;
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c

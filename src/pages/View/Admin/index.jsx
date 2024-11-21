@@ -5,7 +5,10 @@ import CategoryIcon from "@mui/icons-material/Category";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import StoreIcon from "@mui/icons-material/Store";
 import PeopleIcon from "@mui/icons-material/People";
+<<<<<<< HEAD
 import GroupsIcon from '@mui/icons-material/Groups';
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import AssessmentIcon from "@mui/icons-material/Assessment";
 import SearchIcon from "@mui/icons-material/Search";
@@ -13,9 +16,12 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
+<<<<<<< HEAD
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import ArticleIcon from '@mui/icons-material/Article';
 import DiscountIcon from '@mui/icons-material/Discount';
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 import { styled } from "@mui/system";
 
 const drawerWidth = 240;
@@ -178,6 +184,7 @@ const Dashboard = ({ children }) => {
               <StoreIcon />
             </ListItemIcon>
             <ListItemText primary="Quản lý sản phẩm" />
+<<<<<<< HEAD
 
           </ListItemButtonStyled>
 
@@ -236,6 +243,8 @@ const Dashboard = ({ children }) => {
               <GroupsIcon />
             </ListItemIcon>
             <ListItemText primary="Quản lý khách hàng" />
+=======
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </ListItemButtonStyled>
 
           <ListItemButtonStyled
@@ -253,6 +262,7 @@ const Dashboard = ({ children }) => {
           </ListItemButtonStyled>
 
           <ListItemButtonStyled
+<<<<<<< HEAD
             selected={selectedItem === "/admin/newsmanager"}
             onClick={(event) =>
               handleListItemClick(event, "/admin/newsmanager")
@@ -266,6 +276,48 @@ const Dashboard = ({ children }) => {
             <ListItemText primary="Quản lý tin tức" />
           </ListItemButtonStyled>
 
+=======
+            selected={selectedItem === "/admin/customermanager"}
+            onClick={(event) =>
+              handleListItemClick(event, "/admin/customermanager")
+            }
+            component={Link}
+            to="/admin/customermanager"
+          >
+            <ListItemIcon>
+              <PeopleIcon />
+            </ListItemIcon>
+            <ListItemText primary="Quản lý khách hàng" />
+          </ListItemButtonStyled>
+
+          <ListItemButtonStyled
+            selected={selectedItem === "/admin/deliveries"}
+            onClick={(event) =>
+              handleListItemClick(event, "/admin/deliveries")
+            }
+            component={Link}
+            to="/admin/deliveries"
+          >
+            <ListItemIcon>
+              <LocalShippingIcon />
+            </ListItemIcon>
+            <ListItemText primary="Delivery Manager" />
+          </ListItemButtonStyled>
+
+          <ListItemButtonStyled
+            selected={selectedItem === "/admin/reports"}
+            onClick={(event) =>
+              handleListItemClick(event, "/admin/reports")
+            }
+            component={Link}
+            to="/admin/reports"
+          >
+            <ListItemIcon>
+              <AssessmentIcon />
+            </ListItemIcon>
+            <ListItemText primary="Reports" />
+          </ListItemButtonStyled>
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
         </List>
       </DrawerStyled>
       <Content>

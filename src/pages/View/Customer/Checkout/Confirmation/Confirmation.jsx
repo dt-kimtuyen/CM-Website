@@ -16,6 +16,7 @@ const Confirmation = () => {
     return <Typography variant="h6">Không có dữ liệu đơn hàng.</Typography>;
   }
 
+<<<<<<< HEAD
   const calculateSubtotal = () => {
     return orderData.orderDetails.reduce((sum, item) => {
       const price = item.product.price || 0;
@@ -47,6 +48,21 @@ const Confirmation = () => {
   
 
   const { total, finalShippingFee } = calculateTotal();
+=======
+  const calculateTotal = () => {
+    const subtotal = calculateSubtotal();
+    const shippingFee = 40000;
+    return subtotal + shippingFee;
+  };
+
+  const calculateSubtotal = () => {
+    return orderData.orderDetails.reduce((sum, item) => sum + item.product.price * item.quantity, 0);
+  };
+
+  const shippingFee = orderData.shippingFee || 0;
+  const subtotal = calculateSubtotal();
+  const total = subtotal + shippingFee;
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
 
   const handlePrint = () => {
     window.print();
@@ -57,6 +73,10 @@ const Confirmation = () => {
     return new Date().toLocaleDateString('vi-VN', options);
   };
 
+<<<<<<< HEAD
+=======
+  // Define keyframes for the checkmark animation
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const checkmarkAnimation = keyframes`
     0% {
       transform: scale(0);
@@ -75,6 +95,10 @@ const Confirmation = () => {
     }
   `;
 
+<<<<<<< HEAD
+=======
+  // Styled component for the icon with animation
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
   const AnimatedCheckCircleOutlineIcon = styled(CheckCircleOutlineIcon)`
     animation: ${checkmarkAnimation} 1s ease-in-out;
     color: green;
@@ -130,6 +154,7 @@ const Confirmation = () => {
                 Chi tiết đơn hàng
               </Typography>
               <List>
+<<<<<<< HEAD
   {orderData.orderDetails.map((item, index) => {
     const product = item.product;
     const price = product.discountedPrice ? product.discountedPrice : product.price; // Lấy giá đã giảm hoặc giá gốc
@@ -177,6 +202,38 @@ const Confirmation = () => {
   </Typography>
 </Box>
 
+=======
+                {orderData.orderDetails.map((item, index) => (
+                  <ListItem key={index}>
+                    <ListItemText
+                      primary={item.product.name}
+                      secondary={`Số lượng: ${item.quantity} - Giá: ${item.product.price?.toLocaleString('vi-VN', {
+                        style: 'currency',
+                        currency: 'VND',
+                      })}`}
+                    />
+                  </ListItem>
+                ))}
+              </List>
+            </Box>
+            <Box mt={2} pt={2} borderTop="1px solid #ccc">
+              <Typography variant="subtitle1">
+                Tạm tính:{' '}
+                <span style={{ color: 'red' }}>
+                  {calculateSubtotal().toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                </span>
+              </Typography>
+              <Typography variant="h5" marginBottom="20px" fontSize="16px">
+                Phí vận chuyển: <span style={{ color: 'red' }}>40.000₫</span>
+              </Typography>
+              <Typography variant="h6" style={{ marginTop: 10 }}>
+                Tổng cộng:{' '}
+                <span style={{ color: 'red' }}>
+                  {calculateTotal().toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                </span>
+              </Typography>
+            </Box>
+>>>>>>> 4ca596fe95273da02de94af89d6f160b8b73466c
           </Paper>
           <Box display="flex" justifyContent="center" mt={3}>
             <Button variant="contained" color="primary" href="/">
