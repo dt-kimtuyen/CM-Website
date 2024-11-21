@@ -19,7 +19,14 @@
     "compressorjs": "^1.2.1",
     "js-sha256": "^0.11.0",
     "material-ui-confirm": "^3.0.16",
+<<<<<<< HEAD
     "qs": "^6.12.2",
+=======
+
+    "qs": "^6.12.2",
+
+
+>>>>>>> 27b96309da0a37086e94cea4638092185b3853ca
     "ra-data-fakerest": "^4.16.17",
     "react": "^18.2.0",
     "react-admin": "^4.16.18",
@@ -27,9 +34,19 @@
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
     "react-router-dom": "^6.23.1",
+<<<<<<< HEAD
     "react-slick": "^0.30.2",
     "react-toastify": "^10.0.5",
     "slick-carousel": "^1.8.1",
+=======
+
+    "react-slick": "^0.30.2",
+    "react-toastify": "^10.0.5",
+    "slick-carousel": "^1.8.1",
+
+    "react-toastify": "^10.0.5",
+
+>>>>>>> 27b96309da0a37086e94cea4638092185b3853ca
     "styled-components": "^6.1.11",
     "swiper": "^11.1.4"
   },
@@ -42,8 +59,17 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "vite": "^5.2.0"
+<<<<<<< HEAD
   },
   "engines": {
     "node": ">=20.12.2"
+=======
+
+  },
+  "engines": {
+    "node": ">=20.12.2"
+
+
+>>>>>>> 27b96309da0a37086e94cea4638092185b3853ca
   }
 }
