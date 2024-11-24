@@ -99,11 +99,12 @@ const BlogPage = () => {
 };
 
 const tags = [
-  'Công dụng khoai tây',
-  'Măng tây',
-  'Salad dưa chuột',
-  'Sức khỏe',
-  'Tác dụng ớt chuông',
+  'Thời trang nữ',
+  'Thời trang nam',
+  'Phong cách công sở',
+  'Phong cách dạo phố',
+  'Xu hướng 2024',
+  'Lời khuyên phối đồ'
 ];
 
 const styles = {
