@@ -136,7 +136,7 @@ const Product = () => {
               <Typography variant="h6" sx={{ 
                 padding: "10px",
                 fontWeight: 'bold',
-                backgroundColor: '#008b4b',
+                backgroundColor: '#ff69b4',
                 color: "white",
                 fontSize: "20px"
               }}>
@@ -160,7 +160,7 @@ const Product = () => {
                   padding: "10px",
                   marginBottom: '16px', 
                   fontWeight: 'bold',
-                  backgroundColor: '#008b4b',
+                  backgroundColor: '#ff69b4',
                   color: "white",
                   fontSize: "20px"
                 }}>

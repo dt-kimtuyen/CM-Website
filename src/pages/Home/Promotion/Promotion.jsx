@@ -87,9 +87,9 @@ const Promotion = () => {
   return (
     <Box sx={{ p: 3, maxWidth: '100%' }}>
       {/* Tiêu đề và thời gian */}
-      <Box sx={{ marginBottom: '25px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#008b4b', padding: '15px' }}>
+      <Box sx={{ marginBottom: '25px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#ff69b4', padding: '15px' }}>
         <Box>
-          <Typography variant="h5" component="div" sx={{ fontSize: '30px', fontWeight: 'bold', color: '#f8c144', mb: 1 }}>
+          <Typography variant="h5" component="div" sx={{ fontSize: '30px', fontWeight: 'bold', color: '#fff', mb: 1 }}>
             Khuyến mãi đặc biệt <img width="32" height="32" src="//bizweb.dktcdn.net/100/514/629/themes/951567/assets/flash.png?1716945232631" alt="Khuyến mãi đặc biệt" />
           </Typography>
           <Typography variant="body2" color="textSecondary" sx={{ fontSize: '16px', fontWeight: 'bold', color: '#ffff' }}>
@@ -118,7 +118,7 @@ const Promotion = () => {
       </Box>
 
       {/* Hiển thị sản phẩm khuyến mãi */}
-      <Grid container spacing={3} sx={{ marginLeft: "2px", backgroundColor: '#fff', border: '2px dashed #008b4b', maxWidth: "100%" }}>
+      <Grid container spacing={3} sx={{ marginLeft: "2px", backgroundColor: '#ffe4e1', border: '2px dashed #008b4b', maxWidth: "100%" }}>
         {promotions.length === 0 ? (
           <Typography variant="h6" sx={{ textAlign: 'center', width: '100%', py: 3 }}>
             Không có sản phẩm khuyến mãi
@@ -126,7 +126,7 @@ const Promotion = () => {
         ) : (
           promotions.map((item, index) => (
             <Grid item xs={12} sm={6} md={4} key={index}>
-              <Card sx={{ position: 'relative', overflow: 'hidden', transition: 'all 0.3s ease', backgroundColor: '#fff' }}>
+              <Card sx={{ position: 'relative', overflow: 'hidden', transition: 'all 0.3s ease', backgroundColor: '#ffe4e1' }}>
                 <Box sx={{ display: 'flex' }}>
                   <Box sx={{ flex: 1 }}>
                     {/* Hiển thị hình ảnh sản phẩm */}
@@ -144,7 +144,7 @@ const Promotion = () => {
                         '&:hover': { transform: 'scale(1.1)' }
                       }}
                     />
-                    <Box sx={{ position: 'absolute', top: '10px', left: '10px', background: 'red', color: '#fff', padding: '6px', borderRadius: '100px' }}>
+                    <Box sx={{ position: 'absolute', top: '10px', left: '10px', background: '#ff69b4', color: '#fff', padding: '6px', borderRadius: '100px' }}>
                       {item.discount}%
                     </Box>
                   </Box>
@@ -160,7 +160,7 @@ const Promotion = () => {
 
                       <Button
                         variant="contained"
-                        sx={{ mt: 2, backgroundColor: '#008000', color: '#fff', fontSize: '14px' }}
+                        sx={{ mt: 2, backgroundColor: '#ff69b4', color: '#fff', fontSize: '14px' }}
                         onClick={() => handleAddToCart(item.id)} // Gọi hàm thêm vào giỏ hàng
                       >
                         Thêm vào giỏ

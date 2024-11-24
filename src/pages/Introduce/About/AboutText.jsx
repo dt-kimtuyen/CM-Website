@@ -12,13 +12,13 @@ function AboutText() {
 
   const headingStyle = {
     fontSize: '40px',
-    color: '#f1c40f', // Giữ nguyên màu chữ
+    color: '#000000', // Giữ nguyên màu chữ
     margin: 0
   };
 
   const paragraphStyle_Text = {
     fontSize: '16px',
-    color: 'grey', // Giữ nguyên màu chữ
+    color:'#000000', // Giữ nguyên màu chữ
     marginTop: '20px',
     maxWidth: '800px',
     marginLeft: 'auto',

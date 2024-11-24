@@ -6,7 +6,7 @@ function AboutStore() {
     display: 'flex',
     justifyContent: 'space-around',
     alignItems: 'center',
-    backgroundColor: '#FF5733', // Màu cam cháy
+    backgroundColor: '#FFC0CB', // Màu cam cháy
     paddingTop: '30px',
     paddingBottom: '30px',
     width: '100%',
@@ -16,18 +16,19 @@ function AboutStore() {
 
   const itemStyle = {
     textAlign: 'center',
-    color: '#f1c40f', // Giữ màu chữ
+    color: '#000000', // Giữ màu chữ
   };
 
   const numberStyle = {
     fontSize: '40px',
     fontWeight: 'bold',
     margin: 0,
+    color: '#000000',
   };
 
   const textStyle = {
     fontSize: '16px',
-    color: 'white', // Giữ màu chữ
+    color: '#000000', // Giữ màu chữ
     margin: 0,
   };
 

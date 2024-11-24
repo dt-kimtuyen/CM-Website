@@ -145,7 +145,7 @@ const styles = {
     color: '#555',
   },
   readMore: {
-    color: 'green',
+    color: '#ff69b4',
     textDecoration: 'none',
   },
   sidebar: {
@@ -172,7 +172,7 @@ const styles = {
     fontSize: '14px',
     border: '1px solid #ddd',
     borderRadius: '0 4px 4px 0',
-    backgroundColor: 'green',
+    backgroundColor: '#ff69b4',
     color: 'white',
     cursor: 'pointer',
     outline: 'none',
@@ -185,7 +185,7 @@ const styles = {
     marginLeft: '150px',
   },
   widgetTitle: {
-    backgroundColor: '#008b4b',
+    backgroundColor: '#ff69b4',
     margin: '0 0 10px 0',
     fontSize: '16px',
     fontWeight: 'bold',
@@ -208,7 +208,7 @@ const styles = {
     borderRadius: '5px',
   },
   widgetLink: {
-    color: '#000',
+    color: '#ff69b4',
     textDecoration: 'none',
   },
   tags: {
@@ -219,11 +219,11 @@ const styles = {
   tag: {
     margin: '0 10px 10px 0',
     padding: '5px 10px',
-    backgroundColor: '#fff',
+    backgroundColor: '#ffe4e1',
     borderRadius: '20px',
     fontSize: '14px',
     cursor: 'pointer',
-    border: ' 1px solid #008b4b',
+    border: ' 1px solid #ff69b4',
     color: '#2f3640',
   },
 };

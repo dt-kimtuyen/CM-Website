@@ -48,13 +48,13 @@ const AboutLabel = () => {
 
   const cardHeadingStyle = {
     fontSize: '24px',
-    color: '#e67e22', // Thay đổi màu văn bản thành màu cam
+    color: '#000000', // Thay đổi màu văn bản thành màu cam
     margin: '20px 0 10px 0'
   };
 
   const cardParagraphStyle = {
     fontSize: '16px',
-    color: '#e67e22', // Thay đổi màu văn bản thành màu cam
+    color: '#000000', // Thay đổi màu văn bản thành màu cam
     margin: '10px 0 0 0'
   };
 
@@ -66,7 +66,7 @@ const AboutLabel = () => {
 
   const cardIconStyle = {
     fontSize: '40px',
-    color: '#3e8e41',
+    color: '#000000',
     marginBottom: '20px'
   };
 

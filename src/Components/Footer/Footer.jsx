@@ -19,42 +19,12 @@ const Footer = () => {
           <strong>Email:</strong> cmfashion@gmail.com
         </p>
       </div>
-      <div style={styles.footerSection}>
-        <h4 style={styles.sectionTitle}>CHÍNH SÁCH</h4>
-        <ul style={styles.list}>
-          {['Chính sách thành viên', 'Chính sách thanh toán', 'Chính sách đổi sản phẩm', 'Chính sách bảo mật', 'Chính sách cộng tác viên', 'Chính sách bảo hành'].map((item, index) => (
-            <li 
-              key={index} 
-              style={styles.link}
-              onMouseEnter={(e) => e.target.style.color = '#28a745'}
-              onMouseLeave={(e) => e.target.style.color = '#333'}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div style={styles.footerSection}>
-        <h4 style={styles.sectionTitle}>HƯỚNG DẪN</h4>
-        <ul style={styles.list}>
-          {['Hướng dẫn mua hàng', 'Hướng dẫn đổi trả', 'Hướng dẫn thanh toán', 'Chương trình cộng tác viên', 'Tìm kiếm', 'Liên hệ'].map((item, index) => (
-            <li 
-              key={index} 
-              style={styles.link}
-              onMouseEnter={(e) => e.target.style.color = '#28a745'}
-              onMouseLeave={(e) => e.target.style.color = '#333'}
-            >
-              {item}
-            </li>
-          ))}
-        </ul>
-      </div>
+    
       <div style={styles.footerSection}>
         <h4 style={styles.sectionTitle}>KẾT NỐI VỚI CHÚNG TÔI</h4>
         <div style={styles.socialIcons}>
         <a href="#"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/800px-Facebook_Logo_%282019%29.png" alt="Facebook" style={{ width: '45px',
     height: '45px',}} /></a>
-          <a href="#"><img src="https://cdn.icon-icons.com/icons2/2201/PNG/512/twitter_logo_circle_icon_134015.png" alt="Twitter" style={styles.icon} /></a>
           <a href="#"><img src="https://w7.pngwing.com/pngs/523/896/png-transparent-youtube-logo-youtube-red-logo-sunny-leone-angle-rectangle-brand-thumbnail.png" alt="YouTube" style={styles.icon} /></a>
           <a href="#"><img src="https://png.pngtree.com/png-clipart/20190613/original/pngtree-instagram-logo-icon-png-image_3588821.jpg" alt="Instagram" style={styles.icon} /></a>
           
@@ -63,7 +33,6 @@ const Footer = () => {
         <div style={styles.paymentIcons}>
           <img src="https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/payment_1.png?1716945232631" alt="Cash" style={styles.paymentIcon} />
           <img src="https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/payment_2.png?1716945232631" alt="Bank Transfer" style={styles.paymentIcon} />
-          <img src="https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/payment_3.png?1716945232631" alt="Visa/MasterCard" style={styles.paymentIcon} />
           <img src="https://bizweb.dktcdn.net/100/514/629/themes/951567/assets/payment_4.png?1716945232631" alt="MoMo" style={styles.paymentIcon} />
         </div>
       </div>

@@ -55,7 +55,7 @@ const styles = {
     flexDirection: 'column',
     alignItems: 'center',
     padding: '10px',
-    backgroundColor: '#f1f2f6',
+    backgroundColor: '#fce4ec',
     borderRadius: '8px',
     boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
     margin: '10px',
@@ -76,7 +76,7 @@ const styles = {
   title: {
     fontWeight: 'bold',
     marginBottom: '5px',
-    color : '#2ecc71',
+    color : '#666666',
     fontSize: '16px'
   },
   description: {

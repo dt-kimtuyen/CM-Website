@@ -16,7 +16,7 @@ const Introduce = () => {
       <img 
     src="https://images.unsplash.com/photo-1517841905240-472988babdf9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MXwyMDg5NjR8MHwxfGFsbHwxfHx8fHx8fHwxNjE3MzAxNzk0&ixlib=rb-1.2.1&q=80&w=1080" 
     alt="Thời trang nữ" 
-    style={{ width: '600px', height: '400px' }} 
+    style={{ width: '400px', height: '400px',marginRight:'20px' ,objectFit: 'cover', borderRadius: '10px',}} 
 />
         <div style={styles.textBlock}>
           <h2 style={styles.title}>CM FASHION</h2>
@@ -69,7 +69,7 @@ const styles = {
     alignItems: 'center',
     padding: '20px',
     backgroundColor: 'white',
-    color: '#565656',
+    color: '#000000',
   },
   section: {
     display: 'flex',
@@ -88,17 +88,17 @@ const styles = {
     width: '50%',
   },
   title: {
-    color: '#f39c12',
+    color: '#FFC0CB',
     fontSize: '24px',
     marginBottom: '10px',
   },
   subtitle: {
-    color: '#27ae60',
+    color: '#000000',
     fontSize: '20px',
     marginBottom: '20px',
   },
   paragraph: {
-    color: '#565656',
+    color: '#000000',
   },
  // card 2 
     containerStyle : {
@@ -118,12 +118,13 @@ const styles = {
         fontSize: '24px',
         fontWeight: 'bold',
         margin: 0,
+        color: '#FFC0CB',
       
       },
     
        heading1Style : {
         fontSize: '30px',
-        color: 'green',
+        color: '#000000',
         margin: '10px 0'
       },
     
