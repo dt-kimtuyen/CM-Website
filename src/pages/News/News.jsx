@@ -104,7 +104,6 @@ const tags = [
   'Phong cách công sở',
   'Phong cách dạo phố',
   'Xu hướng 2024',
-  'Lời khuyên phối đồ'
 ];
 
 const styles = {

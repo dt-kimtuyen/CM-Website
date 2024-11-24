@@ -20,9 +20,9 @@ const Introduce = () => {
 />
         <div style={styles.textBlock}>
           <h2 style={styles.title}>CM FASHION</h2>
-          <h3 style={styles.subtitle}>Phong cách và Chất lượng</h3>
+          <h3 style={styles.subtitle}>Phong Cách và Chất Lượng</h3>
           <p style={styles.paragraph}>
-          CM FASHION mang đến những bộ trang phục thời trang chất lượng cao, được tuyển chọn từ các nhà thiết kế hàng đầu. Chúng tôi không ngừng đổi mới, cập nhật các xu hướng thời trang quốc tế để mang lại trải nghiệm mua sắm đẳng cấp cho khách hàng tại Việt Nam.
+          CM FASHION mang đến những bộ trang phục thời trang chất lượng cao, được tuyển chọn từ các nhà thiết kế hàng đầu. Chúng tôi không ngừng đổi mới, cập nhật các xu hướng thời trang quốc tế để mang lại trải nghiệm mua sắm đẳng cấp cho khách hàng .
           </p>
         </div>
       </section>
