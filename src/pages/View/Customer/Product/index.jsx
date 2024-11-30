@@ -26,7 +26,7 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import { toast } from 'react-toastify';
 import AppBarComponent from '../../../../Components/AppBar/AppBar';
 import Footer from '../../../../Components/Footer/Footer';
-import { fetchAllProductsAPI, addToCartAPI } from '../../../../apis';
+import { fetchAllProductsAPI, addToCartAPI,fetchAllCategoriesAPI } from '../../../../apis';
 import ChatAI from '../../../../Components/ChatAI/ChatAI';
 
 // Hàm định dạng giá
@@ -54,6 +54,94 @@ const Product = () => {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [sortOption, setSortOption] = useState('default');
   const [products, setProducts] = useState([]);
+  const [categories , setCategories] = useState([])
+  const [selectedCategories, setselectedCategories] = useState([]);
+  const [priceFilter, setPriceFilter] = useState({
+    price1: false,
+    price2: false,
+    price3: false,
+    price4: false,
+
+  })
+  const [filteredProduct, setFilteredProducts] =useState(products)
+  const handleToggle = (categoryId) =>{
+    setselectedCategories((prev) =>
+      prev.includes(categoryId)
+    ? prev.filter((id) => id !== categoryId)
+    : [...prev, categoryId]
+)
+  }
+  
+  useEffect(() =>{
+    let filtered = products
+    if(selectedCategories.length > 0){
+      filtered = filtered.filter((product) =>
+      selectedCategories.includes(product.category.id)
+    )
+    
+  }
+  //loc theo muc gia 
+  filtered = filtered.filter((product)=>{
+    if(
+      !priceFilter.price1 &&
+      !priceFilter.price2 &&
+      !priceFilter.price3 &&
+      !priceFilter.price4 
+    ){
+      return true
+    }
+    if(priceFilter.price1 && product.price < 100000) return true
+    if(priceFilter.price2 && product.price >= 100000 && product.price <= 200000)
+      return true
+    if(priceFilter.price3 && product.price > 200000 && product.price <= 300000)
+      return true
+    if(priceFilter.price4 && product.price > 300000 && product.price <= 500000)
+      return true
+    return false
+
+  })
+    setFilteredProducts(filtered)
+},[selectedCategories,priceFilter,products])
+
+const handleCheckboxChange = (event) =>{
+  setPriceFilter({
+    ...priceFilter,
+    [event.target.name]: event.target.checked
+  })
+}
+  const sortedProducts = [...filteredProduct].sort((a,b)=>{
+    switch(sortOption){
+      case 'asc':
+          return [...products].sort((a, b) => a.name.localeCompare(b.name));
+        case 'desc':
+          return [...products].sort((a, b) => b.name.localeCompare(a.name));
+        case 'priceAsc':
+          return [...products].sort((a, b) => a.price - b.price);
+        case 'priceDesc':
+          return [...products].sort((a, b) => b.price - a.price);
+        case 'newest':
+          return [...products].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        case 'oldest':
+          return [...products].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
+        default:
+          return [...products];
+    }
+
+  })
+
+  useEffect(() =>{
+    const fetchCategories = async () =>{
+      try {
+        const data = await fetchAllCategoriesAPI()
+        setCategories(data)
+        
+      } catch (error) {
+        
+        
+      }
+    }
+    fetchCategories()
+  }, [])
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -65,8 +153,8 @@ const Product = () => {
         console.error('Error fetching products:', error);
       }
     };
-
     fetchProducts();
+
   }, []);
 
   const addToCartHandler = async (productId) => {
@@ -85,28 +173,6 @@ const Product = () => {
     navigate(`/Customer/ProductDetail/${productId}`);
   };
 
-  useEffect(() => {
-    const sortProducts = () => {
-      switch (sortOption) {
-        case 'asc':
-          return [...products].sort((a, b) => a.name.localeCompare(b.name));
-        case 'desc':
-          return [...products].sort((a, b) => b.name.localeCompare(a.name));
-        case 'priceAsc':
-          return [...products].sort((a, b) => a.price - b.price);
-        case 'priceDesc':
-          return [...products].sort((a, b) => b.price - a.price);
-        case 'newest':
-          return [...products].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        case 'oldest':
-          return [...products].sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt));
-        default:
-          return [...products]; // Giữ nguyên thứ tự ban đầu khi sortOption là 'default'
-      }
-    };
-
-    setProducts(sortProducts());
-  }, [sortOption, products]);
 
   const handleMouseEnter = (index) => {
     setHoveredItem(index);
@@ -142,18 +208,18 @@ const Product = () => {
               }}>
                 Danh mục sản phẩm
               </Typography>
-              <List component="nav" aria-label="product categories">
-                {['MEN', 'WOMEN ', 'KIDS', 'ACCESSORIES', 'SHOES', 'CLEARANCE'].map((text, index) => (
-                  <ListItem button key={index} sx={{
-                    '&:hover': {
-                      backgroundColor: '#d4edda',
-                      color: '#008b4b',
-                    }
-                  }}>
-                    <ListItemText primary={text} />
+              <List >
+                {categories.map((category) =>(
+                  <ListItem key={category.id}>
+                    <Checkbox
+                    checked={selectedCategories.includes(category.id)}
+                      onChange={() => handleToggle(category.id)}
+                      />
+                    <ListItemText primary={category.name}/> 
+
                   </ListItem>
                 ))}
-              </List>
+               </List>
               <Divider sx={{ marginY: 2 }} />
               <Box sx={{ marginBottom: '24px' }}>
                 <Typography variant="h6" sx={{ 
@@ -168,10 +234,16 @@ const Product = () => {
                 </Typography>
                 <FormControl component="fieldset">
                   <Typography variant="subtitle1" sx={{ fontWeight: 'bold' }}>Chọn mức giá</Typography>
-                  <FormControlLabel control={<Checkbox name="price1" />} label="Dưới 100.000đ" />
-                  <FormControlLabel control={<Checkbox name="price2" />} label="Từ 100.000đ - 200.000đ" />
-                  <FormControlLabel control={<Checkbox name="price3" />} label="Từ 200.000đ - 300.000đ" />
-                  <FormControlLabel control={<Checkbox name="price4" />} label="Từ 300.000đ - 500.000đ" />
+                  <FormControlLabel 
+                  control={<Checkbox name="price1" checked={priceFilter.price1} onChange={handleCheckboxChange}/>} 
+                  label="Dưới 100.000đ" />
+                  <FormControlLabel 
+                  control={<Checkbox name="price2" checked={priceFilter.price2} onChange={handleCheckboxChange}/>}  label="Từ 100.000đ - 200.000đ" />
+                  <FormControlLabel 
+                  control={<Checkbox name="price3" checked={priceFilter.price3} onChange={handleCheckboxChange}/>}  label="Từ 200.000đ - 300.000đ" />
+                  <FormControlLabel 
+                  control={<Checkbox name="price4" checked={priceFilter.price4} onChange={handleCheckboxChange}/>} 
+                  label="Từ 300.000đ - 500.000đ" />
                 </FormControl>
                 <Divider sx={{ marginY: 2 }} />
               </Box>
@@ -211,7 +283,7 @@ const Product = () => {
             </Box>
 
             <Grid container spacing={3}>
-              {products.map((item, index) => {
+              {sortedProducts.map((item, index) => {
                 const displayedPrice = calculateDisplayedPrice(item.price, item.discount, item.discountExpiration);
 
                 return (
